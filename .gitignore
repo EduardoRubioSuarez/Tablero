@@ -26,3 +26,14 @@ dist-ssr
 # Playwright
 test-results
 playwright-report
+
+# Archivos de IA (contexto y skills de agentes)
+.claude/
+CLAUDE.md
+CONTEXT.md
+AGENTS.md
+.cursor/
+.cursorrules
+.windsurfrules
+.github/copilot-instructions.md
+.aider*

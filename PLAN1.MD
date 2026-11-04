@@ -277,7 +277,7 @@ Marcar con ✅ al terminar cada hito y anotar la fecha. ⬜ = pendiente, 🔄 = 
 | 1.6 | ✅ | 2026-11-04 | src/content/schema.ts (Zod) con 10 pruebas. |
 | 1.7 | ✅ | 2026-11-04 | src/content/base.json (80 acciones, ids base-NNN con el número original; falta el 047) e index.ts. Tipos asignados por mí (drink 40, dare 27, truth 10, movement 3): el autor puede corregirlos. 4 pruebas, incluida una que compara el texto con docs/casillas.md. |
 | 1.8 | ✅ | 2026-11-04 | src/content/reglamento.md provisional. |
-| 1.9 | 🔄 | 2026-11-04 | CI listo en .github/workflows/ci.yml (lint, formato, typecheck, pruebas, e2e); la misma secuencia pasa en local. Falta: elegir proveedor de hosting, crear repositorio remoto y desplegar (requiere cuenta del autor). |
+| 1.9 | 🔄 | 2026-11-04 | CI listo en .github/workflows/ci.yml y proyecto subido a https://github.com/EduardoRubioSuarez/Tablero (rama main, commit 0da9bd8, a nombre del autor, sin coautor). Falta: confirmar que el CI corre en verde en GitHub y desplegar en Vercel (el autor lo hará). |
 | 2.1 | ⬜ | | |
 | 2.2 | ⬜ | | |
 | 2.3 | ⬜ | | |
