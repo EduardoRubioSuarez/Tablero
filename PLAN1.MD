@@ -125,7 +125,7 @@ type Game = { board: Action[]; players: Player[]; laps: number; turn: number; rn
 4. **Pasar retos:** la app no tiene botón "pasar" ni registra si alguien se saltó una acción. La tarjeta solo tiene el botón **Continuar**, que avanza al siguiente turno. Las consecuencias y el límite de retos que se puede saltar un jugador van en el **reglamento**.
 5. **Orden de turnos:** es el orden de alta, que debe coincidir con el orden de asientos. Empieza un jugador elegido al azar.
 7. **Dado:** uno de 6 caras, un tiro por turno, sin extras.
-8. **Casilla 60:** casilla normal con tarjeta. La vuelta se completa al rebasarla; en la última vuelta, llegar a la 60 o pasarla gana (propuesta: va directo a la pantalla final).
+8. **Casilla 60:** casilla normal con tarjeta. La vuelta se completa al rebasarla; en la última vuelta, llegar a la 60 o pasarla gana (el ganador ve primero la tarjeta de la casilla 60, sin aplicar su efecto; al pulsar Continuar aparece el aviso de fin de partida y la tabla de posiciones).
 9. **Límites:** de 2 a 30 jugadores; mínimo 1 vuelta, sin máximo definido (tope técnico alto, por ejemplo 99).
 10. **Advertencia +18:** cada vez que se abre la app.
 11. **Deshacer:** no hay en la v1.
@@ -200,7 +200,7 @@ Todo con lógica pura, sin interfaz.
 - **2.4 Pruebas de propiedades.** Verificar las reglas en 10 000 semillas. Entrega: prueba que falla si cualquier tablero rompe una regla. Depende de: 2.3.
 - **2.5 Dado, turnos y vueltas.** Un dado de 6 sin extras, jugador inicial al azar (con la semilla), avanzar, pasar al siguiente jugador y cambiar de vuelta al rebasar la casilla 60 (caer exactamente en la 60 no completa la vuelta; el sobrante se cuenta desde la salida). Entrega: funciones con pruebas, incluidos los casos de caer en la 60 y de rebasarla. Depende de: 2.3.
 - **2.6 Efectos de movimiento.** Retroceder 5 o 10 (devuelve la casilla de llegada) y volver al inicio de la vuelta actual. Entrega: función con pruebas de los casos límite. Depende de: 2.5.
-- **2.7 Victoria y ranking.** Ganar al llegar a la 60 o pasarla en la última vuelta y ordenar a los jugadores. Entrega: función con pruebas, incluidos llegar justo a la 60 y rebasarla. Depende de: 2.5.
+- **2.7 Victoria y ranking.** Ganar al llegar a la 60 o pasarla en la última vuelta y ordenar a los jugadores. Entrega: función con pruebas, incluidos llegar justo a la 60 y rebasarla, y que el ganador vea la tarjeta de la 60 antes de terminar. Depende de: 2.5.
 - **2.8 Guardado del estado.** Serializar y cargar la partida, con control de versión del formato. Entrega: funciones con pruebas de ida y vuelta. Depende de: 2.3.
 - **2.9 Cierre del bloque.** Revisión con `code-review` y `simplify`, actualizar ADRs si algo cambió. Entrega: motor revisado y documentado. Depende de: 2.4 a 2.8.
 
@@ -215,7 +215,7 @@ Interfaz mínima, sin diseño final.
 - **3.5 Tarjeta de casilla.** Tarjeta con el texto y el botón **Continuar**, que pasa al siguiente turno. En un retroceso se muestran la tarjeta del retroceso y después la de la casilla de llegada. Entrega: tarjeta funcionando en todos los casos. Depende de: 3.4.
 - **3.6 Reglamento en la partida.** Pantalla o panel accesible desde cualquier punto sin perder el estado. Entrega: botón fijo que abre `reglamento.md`. Depende de: 3.4.
 - **3.7 Guardado automático y continuar.** Guardar tras cada turno y ofrecer "continuar partida" al abrir. Entrega: cerrar y abrir el navegador retoma la partida. Depende de: 3.4.
-- **3.8 Fin de partida.** Ganador, ranking y "jugar otra vez" con tablero nuevo. Entrega: pantalla final. Depende de: 3.5.
+- **3.8 Fin de partida.** Cuando alguien gana se muestra primero la tarjeta de la casilla 60; al pulsar Continuar aparece el aviso de que terminó la partida con la tabla de posiciones (ranking) y "jugar otra vez" con tablero nuevo. Entrega: pantalla final. Depende de: 3.5.
 - **3.9 Sacar y agregar jugadores en partida.** Función pura del motor (con pruebas) y pantalla para retirar jugadores y agregar nuevos. El jugador nuevo empieza en la posición 0 de la vuelta donde esté la mayoría de los jugadores activos. Antes de empezar, confirmar con el autor los detalles menores (empate de vueltas, lugar en el orden de turnos, mínimo de 2 jugadores, qué pasa si se saca al jugador en turno). Entrega: se puede cambiar la lista sin perder la partida. Depende de: 3.4, 3.7.
 - **3.10 Prueba e2e y cierre.** Partida completa automatizada en viewport móvil (incluye retroceso, cambio de jugadores y reanudar) y revisión del bloque. Entrega: prueba e2e en verde. Depende de: 3.2 a 3.9.
 
@@ -277,16 +277,16 @@ Marcar con ✅ al terminar cada hito y anotar la fecha. ⬜ = pendiente, 🔄 = 
 | 1.6 | ✅ | 2026-11-04 | src/content/schema.ts (Zod) con 10 pruebas. |
 | 1.7 | ✅ | 2026-11-04 | src/content/base.json (80 acciones, ids base-NNN con el número original; falta el 047) e index.ts. Tipos asignados por mí (drink 40, dare 27, truth 10, movement 3): el autor puede corregirlos. 4 pruebas, incluida una que compara el texto con docs/casillas.md. |
 | 1.8 | ✅ | 2026-11-04 | src/content/reglamento.md provisional. |
-| 1.9 | 🔄 | 2026-11-04 | CI listo en .github/workflows/ci.yml y proyecto subido a https://github.com/EduardoRubioSuarez/Tablero (rama main, commit 0da9bd8, a nombre del autor, sin coautor). Falta: confirmar que el CI corre en verde en GitHub y desplegar en Vercel (el autor lo hará). |
-| 2.1 | ⬜ | | |
-| 2.2 | ⬜ | | |
-| 2.3 | ⬜ | | |
-| 2.4 | ⬜ | | |
-| 2.5 | ⬜ | | |
-| 2.6 | ⬜ | | |
-| 2.7 | ⬜ | | |
-| 2.8 | ⬜ | | |
-| 2.9 | ⬜ | | |
+| 1.9 | ✅ | 2026-11-04 | CI en verde en GitHub (.github/workflows/ci.yml). Desplegado en Vercel desde el repo EduardoRubioSuarez/Tablero; la página muestra el texto "Tablero". Bloque 1 completo. |
+| 2.1 | ✅ | 2026-11-04 | src/engine/types.ts (tipos, constantes y límites), rng.ts (mulberry32 con semilla, shuffle, generateSeed). 10 pruebas. |
+| 2.2 | ✅ | 2026-11-04 | selectActions en src/engine/board.ts: 59 al azar + una VUELVE A LA SALIDA. 5 pruebas. |
+| 2.3 | ✅ | 2026-11-04 | buildBoard (colocación con reintento) y validateBoard (independiente, también sirve para partidas guardadas). Pruebas con tableros hechos a mano. |
+| 2.4 | ✅ | 2026-11-04 | 10 000 semillas: sin violaciones, VUELVE A LA SALIDA usa las 20 posiciones, salen 0, 1 y 2 retrocesos. Tarda ~2 s. |
+| 2.5 | ✅ | 2026-11-04 | src/engine/game.ts: createGame (2 a 30 jugadores, 1 a 99 vueltas, inicia uno al azar), rollDice (d6 sin extras, 60 normal, rebasar pasa de vuelta), continueTurn. Fases roll, card y finished. Inmutable y determinista. |
+| 2.6 | ✅ | 2026-11-04 | Retroceso en dos tarjetas (la ficha se mueve al continuar la primera) y VUELVE A LA SALIDA a la posición 0 de la vuelta actual. |
+| 2.7 | ✅ | 2026-11-04 | Gana en la última vuelta al llegar o pasar la 60; getRanking con empates compartidos. Simulación de 150 partidas completas sin violaciones. Total: 78 pruebas. |
+| 2.8 | ✅ | 2026-11-04 | src/engine/persistence.ts: serializeGame y deserializeGame (Zod más validación cruzada, nunca lanza; versión de formato 1). 18 pruebas, incluidas partidas manipuladas. Total: 96 pruebas. |
+| 2.9 | ✅ | 2026-11-04 | Revisión con el skill code-review (8 hallazgos) y arreglos: semilla validada, guardado con validación cruzada (tarjeta vs. jugador en turno, ganador en la meta, nombres en blanco), retrocesos largos, mensaje de error del tablero, tsconfig.test.json solo para tests. Nueva regla: el ganador ve la tarjeta de la 60 y la partida termina al pulsar Continuar. vitest actualizado a 5.1.0 (0 vulnerabilidades). 107 pruebas. Falta 3.9: agregar y sacar jugadores. |
 | 3.1 | ⬜ | | |
 | 3.2 | ⬜ | | |
 | 3.3 | ⬜ | | |

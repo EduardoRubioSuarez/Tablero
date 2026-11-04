@@ -44,7 +44,7 @@ Casilla eliminada: "TIREN EL DADO LOS NUMEROS IMPARES TOMAN" ya no se usa.
 - **Límites al crear la partida:** de **2 a 30 jugadores**; vueltas **mínimo 1**, sin máximo definido por el autor (en la interfaz se pondrá un tope técnico alto, por ejemplo 99, solo para evitar errores).
 - **Posición y vueltas:** cada jugador tiene `lap` (vuelta en curso, empieza en 1) y `position` (0 a 60).
 - **Casilla 60:** es una casilla normal. Si el jugador cae exactamente en la 60, se muestra su tarjeta y se queda ahí; la vuelta se completa en su siguiente tiro, cuando **rebasa** la 60: pasa a la vuelta siguiente y el sobrante se cuenta desde la salida (por ejemplo, de la posición 58 con un 5: vuelta siguiente, posición 3).
-- **Última vuelta:** si el jugador **llega a la 60 o la pasa**, gana. Propuesta: al ganar se va directo a la pantalla final, sin mostrar tarjeta.
+- **Última vuelta:** si el jugador **llega a la 60 o la pasa**, gana. La ficha queda en la 60 y **se muestra la tarjeta de la casilla 60**; el efecto de esa tarjeta no se aplica (si fuera un retroceso o "vuelve a la salida", el ganador no se mueve). Hasta que el jugador pulsa **Continuar** no aparece el aviso de que terminó la partida, y entonces se muestra la **tabla de posiciones**.
 - **Advertencia +18:** se muestra **cada vez que se abre la app**.
 - **Deshacer:** la versión 1 no tiene deshacer; la mesa corrige de palabra.
 - **Retroceso:** se muestran **dos tarjetas seguidas**: primero la del retroceso (Continuar), luego la ficha se mueve y aparece la de la casilla de llegada (Continuar), y sigue el siguiente turno.
