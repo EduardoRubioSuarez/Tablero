@@ -1,0 +1,493 @@
+[
+  {
+    "id": "base-001",
+    "text": "Beso al mejor vestido",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-002",
+    "text": "DECLÁRATE A ALGUIEN POR MENSAJE",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-003",
+    "text": "TOMAN LOS QUE USAN LENTES",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-004",
+    "text": "VERDAD O RETO",
+    "pack": "base",
+    "kind": "truth"
+  },
+  {
+    "id": "base-005",
+    "text": "BEBE SI BESASTE A ALGUIEN 4 AÑOS MAYOR QUE TU",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-006",
+    "text": "Toma 1 Trago o consigue 1 Beso",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-007",
+    "text": "BEBE EL QUE TENGA UNA PRENDA NEGRA",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-008",
+    "text": "TOMAS TÚ",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-009",
+    "text": "TOMA EL MÁS PERRO",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-010",
+    "text": "BEBEN TODOS MENOS TU",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-011",
+    "text": "ELIJE A 2 PERSONAS PARA QUE SE BESEN",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-012",
+    "text": "DESCANSA BEBE AGUA",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-013",
+    "text": "CASAR FOLLAR MATAR",
+    "pack": "base",
+    "kind": "truth"
+  },
+  {
+    "id": "base-014",
+    "text": "RETROCEDE 5 CASILLAS",
+    "pack": "base",
+    "kind": "movement",
+    "effect": {
+      "type": "back",
+      "steps": 5
+    }
+  },
+  {
+    "id": "base-015",
+    "text": "TOMAN LOS MÁS FRESAS",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-016",
+    "text": "NO PUEDES DECIR QUE \"NO\" HASTA QUE TERMINE EL JUEGO, SINO TOMAS",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-017",
+    "text": "CUENTA UN SECRETO",
+    "pack": "base",
+    "kind": "truth"
+  },
+  {
+    "id": "base-018",
+    "text": "DI TU POSICIÓN FAVORITA",
+    "pack": "base",
+    "kind": "truth"
+  },
+  {
+    "id": "base-019",
+    "text": "IMITA A ALGUIEN DEL GRUPO Y LOS DEMÁS DEBEN ADIVINAR QUIEN ES",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-020",
+    "text": "TOMA UN SHOT",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-021",
+    "text": "CHAU PANTALÓN",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-022",
+    "text": "PASA UN HIELO DE BOCA EN BOCA CON ALGUIEN DEL GRUPO",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-023",
+    "text": "EL MÁS VIEJO Y EL MÁS JOVEN BEBEN",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-024",
+    "text": "TOMAN LOS DE OJOS OSCUROS",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-025",
+    "text": "UFF TE TOCÓ FONDO",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-026",
+    "text": "BESO SENSUAL EN EL CUELLO A LA PERSONA A TU DERECHA",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-027",
+    "text": "VUELVE A LA SALIDA",
+    "pack": "base",
+    "kind": "movement",
+    "effect": {
+      "type": "toLapStart"
+    }
+  },
+  {
+    "id": "base-028",
+    "text": "ADIÓS TOP",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-029",
+    "text": "TODOS TOMAN",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-030",
+    "text": "3 SEGUNDOS DE SHOT",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-031",
+    "text": "EL GRUPO DECIDE DONDE LE DARÁS UN BESO A...",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-032",
+    "text": "UN MINUTO EN EL PARAISO CON EL/LA DE EN FRENTE",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-033",
+    "text": "EL QUE ESTÁ FRENTE A TI HACE FONDO",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-034",
+    "text": "EL GRUPO TE PONE UN RETO",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-035",
+    "text": "BEBEN LOS QUE HARÍAN UN TRÍO",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-036",
+    "text": "TOMAN LOS DE OJOS CLAROS",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-037",
+    "text": "TOMAN LOS QUE HAYAN SIDO INFIELES",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-038",
+    "text": "YO NUNCA NUNCA",
+    "pack": "base",
+    "kind": "truth"
+  },
+  {
+    "id": "base-039",
+    "text": "TOMA EL DE LA DERECHA",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-040",
+    "text": "TOMA EL MÁS GUAPO",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-041",
+    "text": "DEBES DECIR TU CRUSH",
+    "pack": "base",
+    "kind": "truth"
+  },
+  {
+    "id": "base-042",
+    "text": "BAILE HOT AL DE TU IZQUIERDA",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-043",
+    "text": "TOMAN ELLOS",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-044",
+    "text": "FANTASÍA SEXUAL",
+    "pack": "base",
+    "kind": "truth"
+  },
+  {
+    "id": "base-045",
+    "text": "CUENTA TU 1RA VEZ",
+    "pack": "base",
+    "kind": "truth"
+  },
+  {
+    "id": "base-046",
+    "text": "TOMA EL DE LA IZQUIERDA",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-048",
+    "text": "TOMAN ELLAS",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-049",
+    "text": "EL MÁS EBRIO HACE KARAOKE",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-050",
+    "text": "CUENTA TU PEOR EXPERIENCIA SEXUAL",
+    "pack": "base",
+    "kind": "truth"
+  },
+  {
+    "id": "base-051",
+    "text": "RETROCEDE 10 CASILLAS",
+    "pack": "base",
+    "kind": "movement",
+    "effect": {
+      "type": "back",
+      "steps": 10
+    }
+  },
+  {
+    "id": "base-052",
+    "text": "ELIGE QUIEN DEBE HACER FONDO",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-053",
+    "text": "TOMAN L@S QUE LLEVEN E EN SU NOMBRE",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-054",
+    "text": "BEBEN LOS QUE HAYAN BESADO A +15 PERSONAS",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-055",
+    "text": "TOMAN L@S QUE LLEVEN A EN SU NOMBRE",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-056",
+    "text": "BODY SHOT",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-057",
+    "text": "TOMA LA MÁS CHICHONA",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-058",
+    "text": "BEBEN LOS CASTAÑOS",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-059",
+    "text": "DESCRIBE A CADA JUGADOR CON 1 PALABRA",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-060",
+    "text": "MINI BEER PONG",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-061",
+    "text": "TOMAN L@S SOLTER@S",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-062",
+    "text": "TOMA SI BESASTE A ALGUIEN 10+ MAYOR QUE TU",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-063",
+    "text": "BESO DE 3",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-064",
+    "text": "TOMA UN SHOT EL QUE HA DURADO MÁS TIEMPO EN LA CAMA",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-065",
+    "text": "TOMAN LOS QUE ESTÁN ENAMORADOS",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-066",
+    "text": "BEBE SI LE HAS REVISADO EL CEL A UNA PAREJA",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-067",
+    "text": "LA PERSONA A TU DERECHA TE HACE UN CHUPETÓN O 2 SHOTS",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-068",
+    "text": "EL MÁS CODO SE TERMINA SU VASO",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-069",
+    "text": "BESO A LA PERSONA DEL SEXO OPUESTO MÁS LEJANA DE TI",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-070",
+    "text": "CONFIESA QUIEN DEL GRUPO SE TE HACE MÁS ATRACTIV@",
+    "pack": "base",
+    "kind": "truth"
+  },
+  {
+    "id": "base-071",
+    "text": "TOMAN LOS QUE TENGAN TATUAJES",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-072",
+    "text": "SUBE UNA HISTORIA QUE EL GRUPO DECIDA A IG (NO LA PUEDES BORRAR HASTA QUE ACABE EL JUEGO)",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-073",
+    "text": "SIÉNTATE EN LAS PIERNAS DE LA PERSONA FRENTE A TI POR UNA RONDA",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-074",
+    "text": "INTERCAMBIA TOP O PANTALÓN CON LA PERSONA A TU IZQUIERDA",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-075",
+    "text": "BEBE LA ÚLTIMA PERSONA EN LLEGAR",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-076",
+    "text": "ABRAZA POR 30 SEGUNDOS A LA PERSONA QUE LE TENGAS MENOS CONFIANZA DEL GRUPO",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-077",
+    "text": "TOMAN LOS QUE TENGAN PERFORACIONES",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-078",
+    "text": "EL GRUPO TE VA A ACERCAR UNA BEBIDA A CIEGAS, ADIVINA QUE ES O TE LA TERMINAS",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-079",
+    "text": "DILE UN PIROPO AL OIDO A LA PERSONA A TU IZQUIERDA",
+    "pack": "base",
+    "kind": "dare"
+  },
+  {
+    "id": "base-080",
+    "text": "TOMA EL QUE TENGA EL PORCENTAJE DE BATERÍA MÁS BAJO",
+    "pack": "base",
+    "kind": "drink"
+  },
+  {
+    "id": "base-081",
+    "text": "BEBE EL ÚLTIMO QUE HABLÓ CON SU EX",
+    "pack": "base",
+    "kind": "drink"
+  }
+]
