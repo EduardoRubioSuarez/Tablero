@@ -287,16 +287,16 @@ Marcar con ✅ al terminar cada hito y anotar la fecha. ⬜ = pendiente, 🔄 = 
 | 2.7 | ✅ | 2026-11-04 | Gana en la última vuelta al llegar o pasar la 60; getRanking con empates compartidos. Simulación de 150 partidas completas sin violaciones. Total: 78 pruebas. |
 | 2.8 | ✅ | 2026-11-04 | src/engine/persistence.ts: serializeGame y deserializeGame (Zod más validación cruzada, nunca lanza; versión de formato 1). 18 pruebas, incluidas partidas manipuladas. Total: 96 pruebas. |
 | 2.9 | ✅ | 2026-11-04 | Revisión con el skill code-review (8 hallazgos) y arreglos: semilla validada, guardado con validación cruzada (tarjeta vs. jugador en turno, ganador en la meta, nombres en blanco), retrocesos largos, mensaje de error del tablero, tsconfig.test.json solo para tests. Nueva regla: el ganador ve la tarjeta de la 60 y la partida termina al pulsar Continuar. vitest actualizado a 5.1.0 (0 vulnerabilidades). 107 pruebas. Falta 3.9: agregar y sacar jugadores. |
-| 3.1 | ⬜ | | |
-| 3.2 | ⬜ | | |
-| 3.3 | ⬜ | | |
-| 3.4 | ⬜ | | |
-| 3.5 | ⬜ | | |
-| 3.6 | ⬜ | | |
-| 3.7 | ⬜ | | |
-| 3.8 | ⬜ | | |
-| 3.9 | ⬜ | | |
-| 3.10 | ⬜ | | |
+| 3.1 | ✅ | 2026-11-04 | src/store/gameStore.ts (Zustand, fábrica con dependencias inyectables), setup.ts, storage.ts; src/App.tsx cambia de pantalla según el estado. ?seed=N en la URL fija la semilla (depuración y e2e). |
+| 3.2 | ✅ | 2026-11-04 | AgeWarning y AgeDenied; aparece en cada apertura. |
+| 3.3 | ✅ | 2026-11-04 | Setup: vueltas, jugadores con subir, bajar y quitar, aviso del orden de asientos, 2 a 30 jugadores. |
+| 3.4 | ✅ | 2026-11-04 | Table: jugador en turno, casilla, dado y botón Tirar dado. |
+| 3.5 | ✅ | 2026-11-04 | CardView con botón Continuar, dos tarjetas en retroceso, tarjeta del ganador sin aplicar efecto. |
+| 3.6 | ✅ | 2026-11-04 | RulesModal con Markdown propio (sin HTML crudo); Escape y Cerrar; no altera la partida. |
+| 3.7 | ✅ | 2026-11-04 | Guardado tras cada acción; Continuar o descartar en Inicio; aviso si el guardado estaba dañado o el navegador no deja guardar. |
+| 3.8 | ✅ | 2026-11-04 | Results: aviso de fin, tabla de posiciones con empates compartidos, Jugar otra vez; borra el guardado. 26 pruebas e2e (iPhone y Pixel) y 127 unitarias en verde. |
+| 3.9 | ✅ | 2026-11-04 | src/engine/players.ts (addPlayer, removePlayer, majorityLap) y PlayersModal. Decisiones del autor: empate de vueltas va a la menor; el nuevo entra al final de los turnos; mínimo 2; si se saca al jugador en turno pasa al siguiente. Solo se permite antes de tirar el dado. 22 pruebas unitarias nuevas y 4 e2e. |
+| 3.10 | ✅ | 2026-11-04 | Revisión con el skill code-review (8 hallazgos): corregidos lastRoll al sacar al jugador en turno, error obsoleto en Setup, avisos obsoletos al continuar, roll con transición a resultados, nombres repetidos (se bloquean, sin distinguir mayúsculas), paneles con foco devuelto, Escape y fondo inerte. Sin corregir: el guardado sigue en disco tras continuar (latente, solo importaría si se agrega volver al inicio durante la partida) y la trampa de foco completa con Tab. Bloque 3 completo: 154 pruebas unitarias y 46 e2e (iPhone y Pixel). |
 | 4.1 | ⬜ | | |
 | 4.2 | ⬜ | | |
 | 4.3 | ⬜ | | |
