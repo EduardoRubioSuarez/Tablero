@@ -1,5 +1,8 @@
 import { z } from 'zod'
 
+// Sin generación de código en tiempo de ejecución: la política de seguridad de la app no permite `eval`.
+z.config({ jitless: true })
+
 /** Tipos de acción. `movement` solo lo usan las casillas que mueven la ficha. */
 export const ACTION_KINDS = ['drink', 'dare', 'truth', 'movement'] as const
 

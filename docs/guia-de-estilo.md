@@ -42,7 +42,7 @@ Reglas: texto claro sobre fondo oscuro y texto `#0f1f5c` sobre casillas y cartas
 
 ## 4. Tono de los textos
 
-- La interfaz es neutra y directa: "Tirar dado", "Continuar", "Ver todo", "Reglamento", "Jugadores". Verbos claros, sin bromas.
+- La interfaz es neutra y directa: "Tirar dado", "Continuar", "Vista vertical", "Reglamento", "Jugadores". Verbos claros, sin bromas.
 - El tono sube solo en el texto de las acciones de las tarjetas, que se usa tal como lo escribió el autor.
 
 ## 5. Profundidad y movimiento
@@ -62,7 +62,7 @@ Título arriba, "Turno de X", vuelta y casilla, un dado en forma de cubo 3D que 
 - **Cámara que sigue al turno:** se centra en quien tira. Al arrastrar con el dedo se recorre el tablero, y la cámara no se mueve sola mientras alguien arrastra.
 - **Tira de 60 casillas** arriba, siempre visible, con un punto de color por jugador y un marco amarillo que muestra lo que ve la cámara.
 - **Lista de jugadores** debajo, con vuelta y casilla. Al tocar un nombre, la cámara viaja a su ficha.
-- **Botón "Ver todo":** aleja la cámara y baja la inclinación a unos 16 grados. Empieza mostrando la parte de arriba del tablero (hasta cerca de la casilla 42) y se desliza para ver el resto hasta la 60. La demo de referencia está en el enlace de la sección 9.
+- **Botón "Vista vertical":** aleja la cámara y baja la inclinación a unos 16 grados. Empieza mostrando la parte de arriba del tablero (hasta cerca de la casilla 42) y se desliza para ver el resto hasta la 60. La demo de referencia está en el enlace de la sección 9.
 
 ### Tarjeta (hito 3.5 y 4.7)
 Versión **A1, "Estallido"**, quieta:

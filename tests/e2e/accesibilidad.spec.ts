@@ -78,7 +78,7 @@ test.describe('accesibilidad con axe-core (hito 5.5)', () => {
 
     await page.getByRole('button', { name: 'Mapa' }).click()
     await expectAccessible(page, 'mapa')
-    await page.getByRole('button', { name: 'Ver todo' }).click()
+    await page.getByRole('button', { name: 'Vista vertical' }).click()
     await expectAccessible(page, 'mapa (ver todo)')
   })
 

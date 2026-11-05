@@ -155,11 +155,13 @@ test.describe('mapa (hitos 4.3 a 4.5)', () => {
     await expect(page.getByRole('dialog', { name: 'Mapa' })).toHaveCount(0)
   })
 
-  test('Ver todo se activa y se apaga, y tocar a un jugador enfoca su ficha', async ({ page }) => {
+  test('Vista vertical se activa y se apaga, y tocar a un jugador enfoca su ficha', async ({
+    page,
+  }) => {
     await startGame(page, ['Ana', 'Beto'])
     await page.getByRole('button', { name: 'Mapa' }).click()
     const dialog = page.getByRole('dialog', { name: 'Mapa' })
-    const all = dialog.getByRole('button', { name: 'Ver todo' })
+    const all = dialog.getByRole('button', { name: 'Vista vertical' })
     await expect(all).toHaveAttribute('aria-pressed', 'false')
     await all.click()
     await expect(all).toHaveAttribute('aria-pressed', 'true')
@@ -175,7 +177,7 @@ test.describe('mapa (hitos 4.3 a 4.5)', () => {
     await startGame(page, ['Ana', 'Beto'])
     await page.getByRole('button', { name: 'Mapa' }).click()
     const dialog = page.getByRole('dialog', { name: 'Mapa' })
-    await dialog.getByRole('button', { name: 'Ver todo' }).click()
+    await dialog.getByRole('button', { name: 'Vista vertical' }).click()
     const view = dialog.getByRole('group', { name: /^Tablero/ })
     await expect(view).toBeVisible()
     const board = dialog.locator('.tablero3d')

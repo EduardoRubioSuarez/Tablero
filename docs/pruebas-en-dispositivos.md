@@ -14,7 +14,7 @@ Dirección para probar: la de Vercel del proyecto (la misma que se abre con el Q
 2. Toca Compartir, "Agregar a inicio" y abre Tablero desde el ícono. Debe abrir sin la barra de Safari y con el ícono de la "T" amarilla.
 3. Apaga el wifi y los datos, cierra la app del todo y vuelve a abrirla. Debe abrir y poder jugar.
 4. Juega 5 turnos. Revisa que el dado ruede, que las fichas caminen y que la tarjeta se vea completa sin scroll.
-5. Abre **Mapa**: arrastra con el dedo, toca **Ver todo** y toca un nombre de la lista.
+5. Abre **Mapa**: arrastra con el dedo, toca **Vista vertical** y toca un nombre de la lista.
 6. Con el sonido activado, ¿se oye? (Si el celular está en silencio no sonará.) La vibración no existe en iPhone: el botón debe verse apagado.
 7. Deja la pantalla quieta unos 2 minutos durante una partida. ¿Se apaga? Debería mantenerse encendida.
 8. Cierra la app a mitad de una partida, ábrela y revisa que aparezca **Continuar partida**.

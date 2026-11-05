@@ -44,7 +44,7 @@ En **Jugadores** puedes sacar o agregar personas, pero solo antes de tirar el da
 
 ## Ver dónde está cada quien
 
-El botón **Mapa** muestra el tablero y a todos los jugadores. Arrastra para recorrerlo, toca un nombre de la lista para ir a su ficha y usa **Ver todo** para alejarte.
+El botón **Mapa** muestra el tablero y a todos los jugadores. Arrastra para recorrerlo, toca un nombre de la lista para ir a su ficha y usa **Vista vertical** para alejarte.
 
 ## Terminar la partida antes de tiempo
 
