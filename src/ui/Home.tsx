@@ -18,7 +18,9 @@ export function Home() {
       <Confeti seed={3} />
       <PwaNotice />
       <div className="flex flex-col items-center gap-2 text-center">
-        <Dice3D value={null} rolling={false} />
+        <div className="mb-6">
+          <Dice3D value={null} rolling={false} />
+        </div>
         <h1 className="font-display text-6xl leading-none tracking-wide text-sol-400 [text-shadow:0_3px_0_#b78a00,0_10px_18px_rgb(0_0_0/0.45)]">
           TABLERO
         </h1>

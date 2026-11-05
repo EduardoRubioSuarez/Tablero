@@ -86,6 +86,29 @@ test.describe('guía de instalación (hito 5.3)', () => {
     await expect(page.getByRole('region', { name: /^Instala Tablero/ })).toHaveCount(0)
   })
 
+  test('es una barra pequeña que no mueve el resto del inicio y abre los pasos si se piden', async ({
+    page,
+  }) => {
+    await page.goto('/')
+    await page.getByRole('button', { name: 'Tengo 18 años o más' }).click()
+    const newGame = page.getByRole('button', { name: 'Nueva partida' })
+    const guide = page.getByRole('region', { name: /^Instala Tablero/ })
+    await expect(guide).toBeVisible()
+    const withGuide = (await newGame.boundingBox())!.y
+    expect((await guide.boundingBox())!.height).toBeLessThan(90)
+
+    // Los pasos se abren y se cierran sin mover nada más.
+    const how = guide.getByRole('button', { name: /Ver cómo|Instalar/ })
+    if ((await how.textContent())?.includes('Ver cómo')) {
+      await how.click()
+      await expect(guide.getByRole('listitem').first()).toBeVisible()
+      expect((await newGame.boundingBox())!.y).toBe(withGuide)
+    }
+
+    await page.getByRole('button', { name: 'No mostrar más' }).click()
+    expect((await newGame.boundingBox())!.y).toBe(withGuide)
+  })
+
   test('no aparece cuando la app ya se abrió como app instalada', async ({ page }) => {
     await page.addInitScript(() => {
       const original = window.matchMedia.bind(window)
