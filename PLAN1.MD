@@ -318,7 +318,7 @@ Marcar con ✅ al terminar cada hito y anotar la fecha. ⬜ = pendiente, 🔄 = 
 | 5.9 | ⬜ | | Depende del 5.7. Adelantado: la prueba automática de que no sale ningún dato de la app y la revisión de dependencias (0 vulnerabilidades en lo que se entrega; 6 en herramientas de compilación de Workbox, sin arreglo sin bajar de versión). Falta la revisión con security-review y ciso-review. |
 | 6.1 | ⬜ | | |
 | 6.2 | ⬜ | | |
-| 6.3 | 🔄 | 2026-11-05 | Logo decidido por el autor: T amarilla de Titan One con confeti (inicio, advertencia, ícono de la app y favicon). Faltan confirmar el nombre final y el dominio. |
+| 6.3 | 🔄 | 2026-11-05 | Logo decidido por el autor: T amarilla de Titan One con confeti, solo para el ícono de la app y el favicon (el inicio conserva el dado y el título). Faltan confirmar el nombre final y el dominio. |
 | 6.4 | ⬜ | | |
 | 6.5 | ⬜ | | |
 | 6.6 | ⬜ | | |

@@ -3,7 +3,7 @@ import { InstallGuide } from '../pwa/InstallGuide'
 import { PwaNotice } from '../pwa/PwaNotice'
 import { Button } from './Button'
 import { Confeti } from './Confeti'
-import { Logo } from './Logo'
+import { Dice3D } from './Dice3D'
 
 export function Home() {
   const saved = useGame((s) => s.saved)
@@ -17,10 +17,12 @@ export function Home() {
     <main className="anim-pantalla mx-auto flex min-h-dvh max-w-md flex-col justify-center gap-6 p-4">
       <Confeti seed={3} />
       <PwaNotice />
-      <div className="flex flex-col items-center gap-1 text-center">
-        <h1 className="w-full max-w-72">
-          <span className="sr-only">Tablero</span>
-          <Logo className="w-full" />
+      <div className="flex flex-col items-center gap-2 text-center">
+        <div className="mb-6">
+          <Dice3D value={null} rolling={false} />
+        </div>
+        <h1 className="font-display text-6xl leading-none tracking-wide text-sol-400 [text-shadow:0_3px_0_#b78a00,0_10px_18px_rgb(0_0_0/0.45)]">
+          TABLERO
         </h1>
         <p className="text-lila">Juego de fiesta para mayores de 18 años</p>
       </div>

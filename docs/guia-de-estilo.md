@@ -6,8 +6,8 @@ Hito 4.1 · Decidida por el autor el 2026-11-04. Esta guía manda sobre cualquie
 
 Decidido el 2026-11-05: una **T amarilla con canto, de la fuente Titan One, rodeada de confeti de colores**, con el nombre TABLERO debajo en la misma fuente y el mismo canto. El nombre sigue siendo provisional.
 - La T ocupa una caja de 56 × 62 sobre 100 (proporción de 0,86 entre ancho y alto): ni larga ni ancha.
-- Los trazos están guardados como datos en `src/ui/logoPaths.ts` y se dibujan con `src/ui/Logo.tsx`, así que la app no carga la fuente. El ícono de la app es `public/icon.svg`, y `npm run icons` genera los PNG a partir de él.
-- Titan One se usa solo para el logo. La interfaz sigue con Bowlby One y Figtree.
+- Se usa **solo como ícono de la app y favicon** (`public/icon.svg`; `npm run icons` genera los PNG). Dentro de la app, el inicio y la advertencia conservan el dado flotante y el título TABLERO en Bowlby One.
+- Titan One solo se usó para dibujar ese ícono; la app no la carga.
 
 ## 1. Idea general
 
