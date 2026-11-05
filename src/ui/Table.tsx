@@ -5,6 +5,7 @@ import { Button } from './Button'
 import { CardView } from './CardView'
 import { Dice3D } from './Dice3D'
 import { canVibrate, playCue, prefersReducedMotion, signal, vibrate } from './feedback'
+import { PwaNotice } from '../pwa/PwaNotice'
 import { ProgressStrip } from './map/ProgressStrip'
 import { useWalkingSpots } from './map/useWalkingSpots'
 import { useWakeLock } from './useWakeLock'
@@ -142,6 +143,8 @@ export function Table() {
           </ToggleButton>
         </div>
       </header>
+
+      <PwaNotice />
 
       <ProgressStrip players={game.players} spots={spots} turnId={player.id} />
 

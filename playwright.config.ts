@@ -14,6 +14,8 @@ export default defineConfig({
     // Las animaciones (dado, confeti, cámara) se apagan para que las partidas automáticas sean rápidas.
     // Las pruebas de animación la vuelven a activar con page.emulateMedia.
     reducedMotion: 'reduce',
+    // El service worker solo se activa en pwa.spec.ts, para que las demás pruebas no dependan de la caché.
+    serviceWorkers: 'block',
   },
   projects: [
     { name: 'iphone', use: { ...devices['iPhone 14'] } },

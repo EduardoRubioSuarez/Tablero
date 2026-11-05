@@ -33,7 +33,11 @@ export function InfoModal({
           Cerrar
         </Button>
       </div>
-      <div className="mx-auto w-full max-w-md flex-1 overflow-y-auto px-4 pb-8">
+      <div
+        tabIndex={0}
+        aria-label={`Texto de ${title.toLowerCase()}`}
+        className="mx-auto w-full max-w-md flex-1 overflow-y-auto px-4 pb-8"
+      >
         <Markdown source={source} />
       </div>
     </div>

@@ -14,6 +14,9 @@ La app debe poder instalarse en la pantalla de inicio y funcionar sin conexión 
 ## Decisión
 Usar **`vite-plugin-pwa`**. La app es toda estática, así que se precachea todo el contenido (incluidas las 80 acciones y el reglamento). Se muestra un aviso cuando hay una versión nueva, sin interrumpir la partida en curso. Se consultan los skills `pwa-development` al implementarlo (bloque 5).
 
+## Resultado (bloque 5)
+Se usó `vite-plugin-pwa` 2.0 con `registerType: 'prompt'`: el aviso de versión nueva lo decide el jugador. Se precachea todo, salvo las fuentes `.woff`. La instalación y los avisos viven en `src/pwa/`. Las pruebas e2e normales bloquean el service worker y `tests/e2e/pwa.spec.ts` lo activa.
+
 ## Consecuencias
 - Más fácil: instalación, offline y actualizaciones con poca configuración.
 - Más difícil: depurar problemas de caché en dispositivos reales, especialmente iOS Safari.

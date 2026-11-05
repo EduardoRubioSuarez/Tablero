@@ -307,15 +307,15 @@ Marcar con ✅ al terminar cada hito y anotar la fecha. ⬜ = pendiente, 🔄 = 
 | 4.8 | ✅ | 2026-11-04 | Sonido sintetizado con Web Audio (sin archivos) y vibración, con interruptores en la partida que se recuerdan al reabrir. Por defecto activados. Señales: dado, caída, tarjeta, movimiento y victoria. |
 | 4.9 | ✅ | 2026-11-04 | Wake Lock (src/ui/wakeLock.ts): se pide al entrar a la partida, se vuelve a pedir al regresar a la pestaña y se libera al salir. Si el navegador no lo tiene, avisa para ajustar el apagado automático. Probado con simulaciones (unitarias y e2e); no verificado en un celular real. |
 | 4.10 | 🔄 | 2026-11-04 | Revisión visual hecha en 320, 390 y escritorio, con 3 y 30 jugadores, tarjetas largas, ganador y resultados. Ajustes: tarjeta y pantalla de turno compactas en pantallas bajitas (sin scroll en 320 × 568), perspectiva del mapa menos exagerada, fondo sin attachment fixed y confeti apagado con movimiento reducido (WebKit iba 5 veces más lento). Falta la partida real con un grupo, que solo puede hacer el autor. Ajustes pedidos después: botón Reglas en el inicio y Ayuda (solo aclaraciones) en la partida, Terminar partida desde Jugadores, borde amarillo de la lista del mapa sin cortar, y sonido más fuerte con una muestra al activarlo (la vibración se desactiva donde el dispositivo no puede). |
-| 5.1 | ⬜ | | |
-| 5.2 | ⬜ | | |
-| 5.3 | ⬜ | | |
-| 5.4 | ⬜ | | |
-| 5.5 | ⬜ | | |
-| 5.6 | ⬜ | | |
-| 5.7 | ⬜ | | |
-| 5.8 | ⬜ | | |
-| 5.9 | ⬜ | | |
+| 5.1 | ✅ | 2026-11-04 | Manifest generado por vite-plugin-pwa 2.0 (nombre, colores, modo app, vertical, español) e íconos propios: una "T" amarilla con canto sobre el azul (public/icon.svg, PNG de 192, 512 y maskable, y el de iPhone con `npm run icons`). Los íconos son provisionales: el logo final se decide en el hito 6.3. Pruebas e2e del manifest y de los íconos. |
+| 5.2 | ✅ | 2026-11-04 | Service worker con precaché de toda la app (registerType prompt, solo woff2). Se probó con el navegador sin red: recarga, partida de 6 turnos, mapa, ayuda y reanudar. Las fuentes y los íconos también salen de la caché. |
+| 5.3 | ✅ | 2026-11-04 | Guía en el inicio: botón Instalar donde el navegador lo ofrece, pasos del menú Compartir en iPhone y del menú del navegador en Android; se puede descartar y se recuerda, y no aparece si la app ya está instalada. 7 pruebas unitarias de la lógica y 2 e2e. |
+| 5.4 | ✅ | 2026-11-04 | Aviso "Hay una versión nueva" dentro de la pantalla (inicio y partida) con Actualizar o Después; nada se aplica solo. Aviso de "Lista para jugar sin conexión" que se quita solo. Probado el almacén de avisos con pruebas unitarias; no se probó una actualización real entre dos versiones publicadas. |
+| 5.5 | ✅ | 2026-11-04 | axe-core en 12 pruebas (iPhone y Pixel) sobre advertencia, inicio, reglas, configurar, turno, tarjeta (larga y de movimiento), ayuda, jugadores, mapa y resultados: 0 problemas. Corregido: el texto desplazable de Ayuda y Reglamento ahora se enfoca con el teclado. Se hizo antes de cerrar el 4.10 (falta la partida real); si ese hito cambia pantallas, se repite. |
+| 5.6 | ✅ | 2026-11-04 | Lighthouse móvil: rendimiento 96, accesibilidad 100, mejores prácticas 100, SEO 91 (se agregó robots.txt). Primera carga de 167 KB comprimidos, con `npm run size` en la integración continua (límite 300 KB). Reporte en docs/rendimiento.md. |
+| 5.7 | ⬜ | | Solo la puede hacer el autor con celulares reales. Lista de pasos lista en docs/pruebas-en-dispositivos.md. |
+| 5.8 | ✅ | 2026-11-04 | Prueba e2e que juega sin red en iPhone y Pixel (ver 5.2), y prueba de que una partida completa no hace ninguna petición fuera de la propia app. |
+| 5.9 | ⬜ | | Depende del 5.7. Adelantado: la prueba automática de que no sale ningún dato de la app y la revisión de dependencias (0 vulnerabilidades en lo que se entrega; 6 en herramientas de compilación de Workbox, sin arreglo sin bajar de versión). Falta la revisión con security-review y ciso-review. |
 | 6.1 | ⬜ | | |
 | 6.2 | ⬜ | | |
 | 6.3 | ⬜ | | |

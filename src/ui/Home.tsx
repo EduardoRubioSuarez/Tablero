@@ -1,4 +1,6 @@
 import { useGame } from '../store/gameStore'
+import { InstallGuide } from '../pwa/InstallGuide'
+import { PwaNotice } from '../pwa/PwaNotice'
 import { Button } from './Button'
 import { Confeti } from './Confeti'
 import { Dice3D } from './Dice3D'
@@ -14,6 +16,7 @@ export function Home() {
   return (
     <main className="anim-pantalla mx-auto flex min-h-dvh max-w-md flex-col justify-center gap-6 p-4">
       <Confeti seed={3} />
+      <PwaNotice />
       <div className="flex flex-col items-center gap-2 text-center">
         <Dice3D value={null} rolling={false} />
         <h1 className="font-display text-6xl leading-none tracking-wide text-sol-400 [text-shadow:0_3px_0_#b78a00,0_10px_18px_rgb(0_0_0/0.45)]">
@@ -54,6 +57,8 @@ export function Home() {
       <Button variant="secondary" onClick={openRules}>
         Reglas
       </Button>
+
+      <InstallGuide />
     </main>
   )
 }
