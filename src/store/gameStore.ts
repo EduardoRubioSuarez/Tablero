@@ -47,6 +47,10 @@ export type GameState = {
   rulesOpen: boolean
   /** Ayuda de la partida: qué hacer en ciertas situaciones. */
   helpOpen: boolean
+  /** Aviso y privacidad (se abre desde el inicio). */
+  noticeOpen: boolean
+  /** Pantalla "Comparte el juego" con el código QR (se abre desde el inicio). */
+  shareOpen: boolean
   playersOpen: boolean
   mapOpen: boolean
   /** Hito 4.8: sonido y vibración opcionales. */
@@ -70,6 +74,10 @@ export type GameState = {
   closeRules: () => void
   openHelp: () => void
   closeHelp: () => void
+  openNotice: () => void
+  closeNotice: () => void
+  openShare: () => void
+  closeShare: () => void
   endGame: () => void
   openPlayers: () => void
   closePlayers: () => void
@@ -165,6 +173,8 @@ export function createGameStore(deps: StoreDeps): StoreApi<GameState> {
       saveFailed: false,
       endedEarly: false,
       helpOpen: false,
+      noticeOpen: false,
+      shareOpen: false,
       rulesOpen: false,
       playersOpen: false,
       mapOpen: false,
@@ -255,6 +265,10 @@ export function createGameStore(deps: StoreDeps): StoreApi<GameState> {
       closeRules: () => set({ rulesOpen: false }),
       openHelp: () => set({ helpOpen: true }),
       closeHelp: () => set({ helpOpen: false }),
+      openNotice: () => set({ noticeOpen: true }),
+      closeNotice: () => set({ noticeOpen: false }),
+      openShare: () => set({ shareOpen: true }),
+      closeShare: () => set({ shareOpen: false }),
       endGame: () => {
         if (!get().game) return
         clearSavedGame(deps.storage)

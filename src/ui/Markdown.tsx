@@ -22,6 +22,13 @@ export function Markdown({ source }: { source: string }) {
     const line = lines[i]
     if (line.trim() === '') {
       i++
+    } else if (line.startsWith('### ')) {
+      blocks.push(
+        <h4 key={i} className="mt-3 font-semibold text-sol-300">
+          {inline(line.slice(4))}
+        </h4>,
+      )
+      i++
     } else if (line.startsWith('## ')) {
       blocks.push(
         <h3 key={i} className="font-display mt-4 text-lg text-sol-400">

@@ -1,12 +1,26 @@
 # Ayuda
 
-## Izquierda, derecha y enfrente
+Aclaraciones para situaciones que pueden surgir durante la partida. Las reglas completas están en **Reglas**, en el inicio.
 
-Las tarjetas hablan de la izquierda, la derecha y el de enfrente desde tu asiento. La app no calcula quién es: lo resuelve la mesa.
+## Si no quieres hacer una acción
 
-## El dado
+Puedes evitarla gastando una de tus 2 vidas: toma 2 segundos de trago y sigue el juego. No hace falta pulsar nada en la app.
 
-El número de la cara de arriba es la cantidad de casillas que avanza tu ficha. Solo se tira un dado por turno.
+## Si se te acaban las vidas
+
+Ya no puedes evitar acciones. Para recuperar tus 2 vidas tienes que tomarte un vaso o una bebida completa de golpe.
+
+## Si hay desacuerdo sobre un reto
+
+Lo decide la mesa entre todos, por mayoría. Quien tiene el reto no vota. Si hay empate, se da por cumplido. Después se sigue con el siguiente turno.
+
+## Si la acción necesita algo que no tienen
+
+La mesa decide cómo resolverlo.
+
+## Si nadie cumple lo que pide la tarjeta
+
+Por ejemplo, "toman los que usan lentes" y nadie los usa. Nadie bebe y se sigue con el juego.
 
 ## Si caes en un retroceso
 
@@ -21,10 +35,6 @@ Tu ficha regresa a la salida de la vuelta en la que vas. No pierdes vueltas.
 - Si caes justo en la casilla 60, cumples su tarjeta y te quedas ahí.
 - En tu siguiente tiro pasas a la vuelta siguiente y lo que sobre se cuenta desde la salida.
 - En la última vuelta, llegar a la 60 o pasarla te hace ganador. Antes de terminar se muestra la tarjeta de la casilla 60 sin aplicar su efecto. Al pulsar **Continuar** aparece la tabla de posiciones.
-
-## Si alguien se equivoca
-
-No hay deshacer. Corríjanlo de palabra entre todos.
 
 ## Cambiar jugadores
 
@@ -41,7 +51,3 @@ El botón **Mapa** muestra el tablero y a todos los jugadores. Arrastra para rec
 ## Terminar la partida antes de tiempo
 
 En **Jugadores** está el botón **Terminar partida**. Se muestra la tabla de posiciones como van y la partida ya no se puede continuar.
-
-## Si se cierra la app
-
-La partida se guarda sola después de cada acción. Al abrir la app, pulsa **Continuar partida**.

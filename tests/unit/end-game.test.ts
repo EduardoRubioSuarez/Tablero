@@ -58,3 +58,15 @@ describe('terminar la partida antes de tiempo', () => {
     expect(state().endedEarly).toBe(false)
   })
 })
+
+describe('aviso y privacidad (hito 6.2)', () => {
+  it('se abre y se cierra sin tocar la partida', () => {
+    const { state } = makeStore()
+    state().confirmAge()
+    state().openNotice()
+    expect(state().noticeOpen).toBe(true)
+    state().closeNotice()
+    expect(state().noticeOpen).toBe(false)
+    expect(state().screen).toBe('home')
+  })
+})

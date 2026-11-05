@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { useGame } from './store/gameStore'
 import { AgeDenied, AgeWarning } from './ui/AgeWarning'
 import { HelpModal } from './ui/HelpModal'
+import { NoticeModal } from './ui/NoticeModal'
+import { ShareModal } from './ui/ShareModal'
 import { Home } from './ui/Home'
 import { MapView } from './ui/map/MapView'
 import { PlayersModal } from './ui/PlayersModal'
@@ -39,7 +41,9 @@ function App() {
   }, [])
   // El reglamento se lee desde el inicio; durante la partida solo hay ayuda, jugadores y mapa.
   const inGame = screen === 'game'
-  const modalOpen = useGame((s) => s.rulesOpen || s.helpOpen || s.playersOpen || s.mapOpen)
+  const modalOpen = useGame(
+    (s) => s.rulesOpen || s.helpOpen || s.noticeOpen || s.shareOpen || s.playersOpen || s.mapOpen,
+  )
   return (
     <>
       {/* Con un panel abierto, lo de atrás queda inerte: sin foco ni lectura por teclado o lector de pantalla. */}
@@ -47,6 +51,8 @@ function App() {
         <Screen />
       </div>
       {screen === 'home' && <RulesModal />}
+      {screen === 'home' && <NoticeModal />}
+      {screen === 'home' && <ShareModal />}
       {inGame && <HelpModal />}
       {inGame && <PlayersModal />}
       {inGame && <MapView />}

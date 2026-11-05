@@ -12,6 +12,8 @@ export function Home() {
   const resumeSaved = useGame((s) => s.resumeSaved)
   const discardSaved = useGame((s) => s.discardSaved)
   const openRules = useGame((s) => s.openRules)
+  const openNotice = useGame((s) => s.openNotice)
+  const openShare = useGame((s) => s.openShare)
 
   return (
     <main className="anim-pantalla mx-auto flex min-h-dvh max-w-md flex-col justify-center gap-6 p-4">
@@ -24,7 +26,7 @@ export function Home() {
         <h1 className="font-display text-6xl leading-none tracking-wide text-sol-400 [text-shadow:0_3px_0_#b78a00,0_10px_18px_rgb(0_0_0/0.45)]">
           TABLERO
         </h1>
-        <p className="text-lila">Juego de fiesta para mayores de 18 años</p>
+        <p className="text-lila">Juego de fiesta interactivo</p>
       </div>
 
       {corrupt && (
@@ -58,6 +60,12 @@ export function Home() {
       </Button>
       <Button variant="secondary" onClick={openRules}>
         Reglas
+      </Button>
+      <Button variant="secondary" onClick={openShare}>
+        Comparte el juego
+      </Button>
+      <Button variant="ghost" onClick={openNotice} className="min-h-10 text-sm">
+        Aviso y privacidad
       </Button>
 
       <InstallGuide />
