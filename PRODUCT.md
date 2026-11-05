@@ -28,15 +28,15 @@ Stack ya decidido: React, Vite, TypeScript, Tailwind 4 (ver PLAN1.MD). Tablero d
 
 ## Brand Commitments
 
-- Nombre provisional: "Tablero".
-- El autor tiene un diseño previo en `WhatsApp Image 2026-06-19 at 4.46.16 PM.jpeg`: fondo azul rey oscuro, título amarillo, casillas blancas con ilustraciones coloridas por casilla. Colores oscuros, pero abierto a otras opciones. Si se reutilizan sus ilustraciones está sin confirmar.
+- Nombre provisional: "Tablero". Logo decidido el 2026-11-05: T amarilla con canto y confeti (ver docs/guia-de-estilo.md).
+- El autor tuvo un diseño previo (la imagen ya se quitó del proyecto): fondo azul rey oscuro, título amarillo, casillas blancas con ilustraciones coloridas por casilla. Colores oscuros, pero abierto a otras opciones. Si se reutilizan sus ilustraciones está sin confirmar.
 - Tono de la interfaz: neutro en instrucciones. El tono sube y pierde la neutralidad solo en las tarjetas.
 - El autor quiere una app muy llamativa, con el mejor diseño posible, y le interesa que el tablero tenga profundidad y más detalle.
 - El contenido sexual y de alcohol es legítimo; no se suaviza.
 
 ## Evidence on Hand
 
-`docs/casillas.md` (80 acciones), imagen de referencia del autor, 154 pruebas unitarias y 46 e2e. No hay logo, ilustraciones sueltas ni reglamento final.
+`docs/casillas.md` (80 acciones), el logo (T amarilla con confeti) y las 80 ilustraciones dibujadas en SVG. Las pruebas unitarias y e2e cubren la partida, el mapa, la PWA y la accesibilidad. Falta el reglamento final.
 
 ## Product Principles
 

@@ -11,7 +11,7 @@ export default defineConfig({
     VitePWA({
       // La actualización no se aplica sola: la app avisa y el jugador decide cuándo (hito 5.4).
       registerType: 'prompt',
-      includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
+      includeAssets: ['icon.svg', 'apple-touch-icon.png'],
       manifest: {
         name: 'Tablero',
         short_name: 'Tablero',

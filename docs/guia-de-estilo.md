@@ -2,9 +2,16 @@
 
 Hito 4.1 · Decidida por el autor el 2026-11-04. Esta guía manda sobre cualquier decisión visual de los hitos 4.2 a 4.10. Si algo no está aquí, se pregunta al autor antes de inventarlo.
 
+## Logo
+
+Decidido el 2026-11-05: una **T amarilla con canto, de la fuente Titan One, rodeada de confeti de colores**, con el nombre TABLERO debajo en la misma fuente y el mismo canto. El nombre sigue siendo provisional.
+- La T ocupa una caja de 56 × 62 sobre 100 (proporción de 0,86 entre ancho y alto): ni larga ni ancha.
+- Los trazos están guardados como datos en `src/ui/logoPaths.ts` y se dibujan con `src/ui/Logo.tsx`, así que la app no carga la fuente. El ícono de la app es `public/icon.svg`, y `npm run icons` genera los PNG a partir de él.
+- Titan One se usa solo para el logo. La interfaz sigue con Bowlby One y Figtree.
+
 ## 1. Idea general
 
-Tablero se ve como un tablero de juego físico sobre una mesa de bar, bajo una lámpara. Parte del diseño original del autor (`WhatsApp Image 2026-06-19 at 4.46.16 PM.jpeg`): azul rey oscuro, título amarillo y casillas blancas con una ilustración cada una. La app lo convierte en objetos con grosor, sombra y profundidad, y la interfaz alrededor se mantiene neutra para que las tarjetas sean lo llamativo.
+Tablero se ve como un tablero de juego físico sobre una mesa de bar, bajo una lámpara. Parte del diseño original del autor: azul rey oscuro, título amarillo y casillas blancas con una ilustración cada una. La app lo convierte en objetos con grosor, sombra y profundidad, y la interfaz alrededor se mantiene neutra para que las tarjetas sean lo llamativo.
 
 Escena de uso: de noche, con poca luz, un celular que pasa de mano en mano. Por eso el fondo es oscuro, el texto es grande y los botones son enormes.
 
@@ -79,17 +86,7 @@ Las del diseño original no se usan. Se dibuja un set nuevo con el **estilo de c
 
 Estilos neón, pinball y etiqueta de disco como mundos completos; íconos de calcomanía, inflables y de línea de neón; las cartas Boleto de feria y Marquesina; las etiquetas de tipo en la tarjeta; la inclinación fija y el flotado de la carta.
 
-## 9. Referencias visuales (borradores del hito 4.1)
-
-Son páginas privadas de la sesión de diseño. Sirven de referencia, no son código del proyecto.
-- Mapa con cámara: https://claude.ai/artifact/V5gyyCWbqcpw9rR1sazfKe
-- Íconos y estilos: https://claude.ai/artifact/FyKtsabgTqavzyeLKigfc1 y https://claude.ai/artifact/7Q8mYrVDXNANFV73X8NWL9
-- Tarjeta final: https://claude.ai/artifact/AMLzRm2yRgGkoPWvNYbtnp
-- Mundos comparados: https://claude.ai/artifact/VqHwor3uP2ysLYL5WrqLf8
-
-Si esos enlaces dejan de funcionar, esta guía describe lo necesario para reconstruirlos.
-
-## 10. Notas de implementación (bloque 4)
+## 9. Notas de implementación (bloque 4)
 
 - El mapa tiene una fila de **SALIDA** arriba (amarilla) y una de **META** abajo (a cuadros), además de las 60 casillas en 6 columnas. Los jugadores en la posición 0 están en la fila de salida.
 - Las fichas caminan casilla por casilla al avanzar y saltan directo en un retroceso o al volver a la salida. Se ven hasta 2 por casilla (6 en la salida) y el resto se cuenta con un "+n".
@@ -101,7 +98,7 @@ Si esos enlaces dejan de funcionar, esta guía describe lo necesario para recons
 - Pantallas bajitas (menos de 740 px de alto) y muy bajitas (menos de 620 px) compactan la tarjeta y la pantalla de turno para que no haya scroll.
 - El sonido y la vibración están activados por defecto y se apagan desde dos botones en la parte de arriba de la partida (ADR 008). Al encenderlos suena o vibra una muestra. La vibración no existe en iPhone ni en la mayoría de las computadoras, y ahí el botón aparece desactivado.
 
-## 11. Pendientes
+## 10. Pendientes
 
 1. Confirmar con el autor si el color de la tarjeta va por tipo de acción o es uno solo.
 2. Dibujar los íconos que faltan para las 80 acciones.

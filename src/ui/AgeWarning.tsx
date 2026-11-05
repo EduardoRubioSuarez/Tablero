@@ -1,5 +1,6 @@
 import { useGame } from '../store/gameStore'
 import { Button } from './Button'
+import { Logo } from './Logo'
 
 /** Hito 3.2. Aparece cada vez que se abre la app. */
 export function AgeWarning() {
@@ -8,8 +9,9 @@ export function AgeWarning() {
 
   return (
     <main className="anim-pantalla mx-auto flex min-h-dvh max-w-md flex-col justify-center gap-6 p-4">
-      <h1 className="font-display text-center text-5xl leading-none tracking-wide text-sol-400 [text-shadow:0_3px_0_#b78a00,0_10px_18px_rgb(0_0_0/0.45)]">
-        TABLERO
+      <h1 className="mx-auto w-full max-w-56">
+        <span className="sr-only">Tablero</span>
+        <Logo className="w-full" />
       </h1>
       <section
         aria-labelledby="warning-title"

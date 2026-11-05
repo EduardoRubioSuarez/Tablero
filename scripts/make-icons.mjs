@@ -1,7 +1,7 @@
 // Genera los íconos PNG de la app a partir de public/icon.svg.
 // Uso: npm run icons (requiere Chromium de Playwright; ya viene con el proyecto).
 import { chromium } from '@playwright/test'
-import { readFileSync, writeFileSync, copyFileSync } from 'node:fs'
+import { readFileSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
@@ -31,5 +31,3 @@ try {
 } finally {
   await browser.close()
 }
-copyFileSync(join(root, 'public', 'icon.svg'), join(root, 'public', 'favicon.svg'))
-console.log('listo favicon.svg')
