@@ -1,5 +1,3 @@
-# Aviso y privacidad
-
 > Texto base escrito por el autor del juego. Conviene revisarlo con un profesional antes de promover el juego públicamente.
 
 ## Para quién es

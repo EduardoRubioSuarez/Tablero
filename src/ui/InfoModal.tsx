@@ -28,7 +28,7 @@ export function InfoModal({
       className="anim-pantalla fondo-mesa fixed inset-0 z-50 flex flex-col"
     >
       <div className="mx-auto flex w-full max-w-md items-center justify-between p-4">
-        <span className="font-display text-xl text-sol-400">{title}</span>
+        <h2 className="font-display text-3xl leading-tight text-sol-400">{title}</h2>
         <Button ref={closeRef} variant="secondary" onClick={onClose}>
           Cerrar
         </Button>

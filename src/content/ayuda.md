@@ -1,5 +1,3 @@
-# Ayuda
-
 Aclaraciones para situaciones que pueden surgir durante la partida. Las reglas completas están en **Reglas**, en el inicio.
 
 ## Si no quieres hacer una acción

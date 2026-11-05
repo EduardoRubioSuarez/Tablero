@@ -1,5 +1,3 @@
-# Reglamento
-
 ## Cómo se juega
 
 1. Agreguen a los jugadores en el orden en que están sentados. Pueden jugar de 2 a 30 personas.
