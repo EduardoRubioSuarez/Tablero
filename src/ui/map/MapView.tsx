@@ -251,7 +251,7 @@ function MapDialog({ game, onClose }: { game: Game; onClose: () => void }) {
 
         <section
           aria-label="Posiciones"
-          className="-mx-1 max-h-[34%] shrink-0 overflow-y-auto px-1 py-1"
+          className="-mx-1 h-[34%] shrink-0 overflow-y-auto px-1 py-1"
         >
           <ol className="flex flex-col gap-1">
             {ranking.map(({ player, rank }) => {

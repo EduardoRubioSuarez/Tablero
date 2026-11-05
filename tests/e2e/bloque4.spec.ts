@@ -112,6 +112,21 @@ test.describe('mapa (hitos 4.3 a 4.5)', () => {
     await expect(list.first()).toContainText('salida')
   })
 
+  test('la lista empieza siempre en el mismo lugar, con pocos o con muchos jugadores', async ({
+    page,
+  }) => {
+    const listTop = async (names: string[]) => {
+      await startGame(page, names)
+      await page.getByRole('button', { name: 'Mapa' }).click()
+      const list = page.getByRole('region', { name: 'Posiciones' })
+      await expect(list).toBeVisible()
+      return (await list.boundingBox())!.y
+    }
+    const few = await listTop(['Ana', 'Beto'])
+    const many = await listTop(['Ana', 'Beto', 'Carla', 'Dani', 'Eva', 'Fito', 'Gina'])
+    expect(Math.abs(few - many)).toBeLessThan(2)
+  })
+
   test('hay una ficha por jugador y las fichas juntas se agrupan', async ({ page }) => {
     await startGame(page, ['Ana', 'Beto', 'Carla', 'Dani'])
     await page.getByRole('button', { name: 'Mapa' }).click()

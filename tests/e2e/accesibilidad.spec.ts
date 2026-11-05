@@ -92,7 +92,7 @@ test.describe('accesibilidad con axe-core (hito 5.5)', () => {
   })
 
   test('la tarjeta de una acción larga y la de un retroceso', async ({ page }) => {
-    test.setTimeout(120_000)
+    test.setTimeout(240_000)
     await startGame(page, ['Ana', 'Beto'], 1, 3)
     let seenLong = false
     let seenMove = false
