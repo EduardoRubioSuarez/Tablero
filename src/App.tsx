@@ -1,6 +1,7 @@
 import { useGame } from './store/gameStore'
 import { AgeDenied, AgeWarning } from './ui/AgeWarning'
 import { Home } from './ui/Home'
+import { MapView } from './ui/map/MapView'
 import { PlayersModal } from './ui/PlayersModal'
 import { Results } from './ui/Results'
 import { RulesModal } from './ui/RulesModal'
@@ -30,7 +31,7 @@ function App() {
   const screen = useGame((s) => s.screen)
   // El reglamento solo se ofrece dentro de la partida.
   const showRules = screen === 'game'
-  const modalOpen = useGame((s) => s.rulesOpen || s.playersOpen)
+  const modalOpen = useGame((s) => s.rulesOpen || s.playersOpen || s.mapOpen)
   return (
     <>
       {/* Con un panel abierto, lo de atrás queda inerte: sin foco ni lectura por teclado o lector de pantalla. */}
@@ -39,6 +40,7 @@ function App() {
       </div>
       {showRules && <RulesModal />}
       {showRules && <PlayersModal />}
+      {showRules && <MapView />}
     </>
   )
 }

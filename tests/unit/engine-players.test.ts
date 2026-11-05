@@ -174,5 +174,6 @@ describe('cambios de jugadores durante partidas completas', () => {
       expect(game.phase, `semilla ${seed}`).toBe('finished')
       expect(game.players.some((x) => x.id === game.winnerId)).toBe(true)
     }
-  })
+    // Recorre 60 partidas completas guardando y cargando en cada paso: con la máquina ocupada tarda más de 5 s.
+  }, 60_000)
 })

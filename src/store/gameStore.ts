@@ -11,6 +11,7 @@ import {
   rollDice,
   type Game,
 } from '../engine'
+import { loadSettings, saveSettings } from './settings'
 import { DEFAULT_SETUP, cleanNames, validateSetup, type SetupDraft } from './setup'
 import {
   browserStorage,
@@ -42,6 +43,10 @@ export type GameState = {
   saveFailed: boolean
   rulesOpen: boolean
   playersOpen: boolean
+  mapOpen: boolean
+  /** Hito 4.8: sonido y vibración opcionales. */
+  sound: boolean
+  vibration: boolean
   draft: SetupDraft
   error: string | null
 
@@ -60,6 +65,10 @@ export type GameState = {
   closeRules: () => void
   openPlayers: () => void
   closePlayers: () => void
+  openMap: () => void
+  closeMap: () => void
+  toggleSound: () => void
+  toggleVibration: () => void
   addPlayer: (name: string) => void
   removePlayer: (playerId: string) => void
 }
@@ -91,6 +100,7 @@ export function defaultDeps(): StoreDeps {
 export function createGameStore(deps: StoreDeps): StoreApi<GameState> {
   const initial = loadSavedGame(deps.storage)
   if (initial.status === 'corrupt') clearSavedGame(deps.storage)
+  const settings = loadSettings(deps.storage)
 
   return createStore<GameState>()((set, get) => {
     /** Guarda la partida (o borra el guardado si ya terminó) y devuelve el estado a fusionar. */
@@ -116,6 +126,7 @@ export function createGameStore(deps: StoreDeps): StoreApi<GameState> {
           screen: 'game',
           rulesOpen: false,
           playersOpen: false,
+          mapOpen: false,
           error: null,
           ...persist(game),
         })
@@ -144,12 +155,16 @@ export function createGameStore(deps: StoreDeps): StoreApi<GameState> {
       saveFailed: false,
       rulesOpen: false,
       playersOpen: false,
+      mapOpen: false,
+      sound: settings.sound,
+      vibration: settings.vibration,
       draft: DEFAULT_SETUP,
       error: null,
 
       confirmAge: () => set({ screen: 'home' }),
       denyAge: () => set({ screen: 'denied' }),
-      goHome: () => set({ screen: 'home', rulesOpen: false, playersOpen: false, error: null }),
+      goHome: () =>
+        set({ screen: 'home', rulesOpen: false, playersOpen: false, mapOpen: false, error: null }),
       goSetup: () => set({ screen: 'setup', error: null }),
       setDraft: (draft) => set({ draft, error: null }),
 
@@ -194,6 +209,7 @@ export function createGameStore(deps: StoreDeps): StoreApi<GameState> {
           screen: 'game',
           rulesOpen: false,
           playersOpen: false,
+          mapOpen: false,
           saveFailed: false,
           error: null,
         })
@@ -217,6 +233,18 @@ export function createGameStore(deps: StoreDeps): StoreApi<GameState> {
       closeRules: () => set({ rulesOpen: false }),
       openPlayers: () => set({ playersOpen: true, error: null }),
       closePlayers: () => set({ playersOpen: false, error: null }),
+      openMap: () => set({ mapOpen: true }),
+      closeMap: () => set({ mapOpen: false }),
+      toggleSound: () => {
+        const sound = !get().sound
+        saveSettings(deps.storage, { sound, vibration: get().vibration })
+        set({ sound })
+      },
+      toggleVibration: () => {
+        const vibration = !get().vibration
+        saveSettings(deps.storage, { sound: get().sound, vibration })
+        set({ vibration })
+      },
 
       addPlayer: (name) => change((game) => addPlayer(game, name)),
       removePlayer: (playerId) => change((game) => removePlayer(game, playerId)),

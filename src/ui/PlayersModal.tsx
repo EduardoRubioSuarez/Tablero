@@ -42,10 +42,10 @@ export function PlayersModal() {
       role="dialog"
       aria-modal="true"
       aria-label="Jugadores"
-      className="fixed inset-0 z-50 flex flex-col bg-zinc-950"
+      className="anim-pantalla fondo-mesa fixed inset-0 z-50 flex flex-col"
     >
       <div className="mx-auto flex w-full max-w-md items-center justify-between p-4">
-        <h2 className="text-xl font-bold">Jugadores</h2>
+        <h2 className="font-display text-xl text-sol-400">Jugadores</h2>
         <Button ref={closeRef} variant="secondary" onClick={closeAndReset}>
           Cerrar
         </Button>
@@ -53,23 +53,29 @@ export function PlayersModal() {
 
       <div className="mx-auto flex w-full max-w-md flex-1 flex-col gap-4 overflow-y-auto px-4 pb-8">
         {!canChange && (
-          <p role="status" className="rounded-xl bg-zinc-900 p-3 text-sm text-amber-300">
+          <p
+            role="status"
+            className="rounded-xl bg-white/10 ring-1 ring-white/10 p-3 text-sm text-sol-300"
+          >
             Solo se puede cambiar la lista antes de tirar el dado. Termina esta jugada primero.
           </p>
         )}
 
         <ol className="flex flex-col gap-2">
           {game.players.map((player, index) => (
-            <li key={player.id} className="flex items-center gap-3 rounded-xl bg-zinc-900 p-3">
-              <span className="w-6 text-right text-sm text-zinc-500">{index + 1}</span>
+            <li
+              key={player.id}
+              className="flex items-center gap-3 rounded-xl bg-white/10 ring-1 ring-white/10 p-3"
+            >
+              <span className="w-6 text-right text-sm text-lila/80">{index + 1}</span>
               <div className="min-w-0 flex-1">
                 <p className="truncate font-semibold">
                   {player.name}
                   {index === game.turn && (
-                    <span className="ml-2 text-xs text-amber-300">en turno</span>
+                    <span className="ml-2 text-xs text-sol-300">en turno</span>
                   )}
                 </p>
-                <p className="text-xs text-zinc-400">
+                <p className="text-xs text-lila">
                   Vuelta {player.lap} ·{' '}
                   {player.position === 0
                     ? 'salida'
@@ -93,7 +99,7 @@ export function PlayersModal() {
         </ol>
 
         {game.players.length <= MIN_PLAYERS && (
-          <p className="text-xs text-zinc-500">Debe quedar al menos {MIN_PLAYERS} jugadores.</p>
+          <p className="text-xs text-lila/80">Debe quedar al menos {MIN_PLAYERS} jugadores.</p>
         )}
 
         <form
@@ -103,15 +109,15 @@ export function PlayersModal() {
             submit()
           }}
         >
-          <label htmlFor="new-player" className="font-semibold">
+          <label htmlFor="new-player" className="font-display">
             Agregar jugador
           </label>
-          <p className="text-xs text-zinc-400">
+          <p className="text-xs text-lila">
             Entra al final del orden de turnos y empieza en la salida de la vuelta donde está la
             mayoría.
           </p>
           {duplicate && (
-            <p role="status" className="text-xs text-amber-300">
+            <p role="status" className="text-xs text-sol-300">
               Ya hay un jugador con ese nombre.
             </p>
           )}
@@ -124,7 +130,7 @@ export function PlayersModal() {
               maxLength={30}
               autoComplete="off"
               disabled={!canChange || game.players.length >= MAX_PLAYERS}
-              className="min-h-12 min-w-0 flex-1 rounded-xl bg-zinc-800 px-3 text-base text-zinc-50 placeholder:text-zinc-500 focus-visible:outline-2 focus-visible:outline-amber-300 disabled:opacity-50"
+              className="min-h-12 min-w-0 flex-1 rounded-xl bg-white/12 px-3 text-base text-white ring-1 ring-white/20 placeholder:text-white/50  disabled:opacity-50"
             />
             <Button type="submit" disabled={!canAdd}>
               Agregar
@@ -133,7 +139,7 @@ export function PlayersModal() {
         </form>
 
         {error && (
-          <p role="alert" className="text-sm text-amber-300">
+          <p role="alert" className="text-sm text-sol-300">
             {error}
           </p>
         )}

@@ -297,16 +297,16 @@ Marcar con ✅ al terminar cada hito y anotar la fecha. ⬜ = pendiente, 🔄 = 
 | 3.8 | ✅ | 2026-11-04 | Results: aviso de fin, tabla de posiciones con empates compartidos, Jugar otra vez; borra el guardado. 26 pruebas e2e (iPhone y Pixel) y 127 unitarias en verde. |
 | 3.9 | ✅ | 2026-11-04 | src/engine/players.ts (addPlayer, removePlayer, majorityLap) y PlayersModal. Decisiones del autor: empate de vueltas va a la menor; el nuevo entra al final de los turnos; mínimo 2; si se saca al jugador en turno pasa al siguiente. Solo se permite antes de tirar el dado. 22 pruebas unitarias nuevas y 4 e2e. |
 | 3.10 | ✅ | 2026-11-04 | Revisión con el skill code-review (8 hallazgos): corregidos lastRoll al sacar al jugador en turno, error obsoleto en Setup, avisos obsoletos al continuar, roll con transición a resultados, nombres repetidos (se bloquean, sin distinguir mayúsculas), paneles con foco devuelto, Escape y fondo inerte. Sin corregir: el guardado sigue en disco tras continuar (latente, solo importaría si se agrega volver al inicio durante la partida) y la trampa de foco completa con Tab. Bloque 3 completo: 154 pruebas unitarias y 46 e2e (iPhone y Pixel). |
-| 4.1 | ⬜ | | |
-| 4.2 | ⬜ | | |
-| 4.3 | ⬜ | | |
-| 4.4 | ⬜ | | |
-| 4.5 | ⬜ | | |
-| 4.6 | ⬜ | | |
-| 4.7 | ⬜ | | |
-| 4.8 | ⬜ | | |
-| 4.9 | ⬜ | | |
-| 4.10 | ⬜ | | |
+| 4.1 | ✅ | 2026-11-04 | Guía en docs/guia-de-estilo.md: mundo "Mesa de bar" (azul laca, amarillo, casillas blancas con canto), mapa 3D con cámara que sigue al turno, tira de 60 casillas, lista que enfoca y Ver todo con deslizado, íconos nuevos de contorno grueso (se descartan las ilustraciones originales), tarjeta Estallido quieta con confeti, sin número ni etiqueta de tipo. Tipografía Bowlby One y Figtree. Pendiente: confirmar si el color de la tarjeta va por tipo, y dibujar los íconos de las 80 acciones. Se creó PRODUCT.md. |
+| 4.2 | ✅ | 2026-11-04 | Sistema de diseño en src/index.css (tokens Tailwind 4: laca, sol, rosa, cian; Bowlby One y Figtree alojadas en la app con @fontsource, solo subconjunto latino), Button, paneles y todas las pantallas restiladas. 80 ilustraciones de contorno grueso (src/ui/iconDrawings.tsx, iconMap.ts, icons.tsx) con prueba de que cada acción tiene su ícono. Detector de diseño de Impeccable sin hallazgos. ADR 008. |
+| 4.3 | ✅ | 2026-11-04 | Mapa en 3D (src/ui/map/): salida, 60 casillas en camino serpenteante de 6 columnas con su ilustración, meta, canto de laca y perspectiva. Panel Mapa desde el botón de la partida. Cámara que sigue al jugador, deslizado con dedo, rueda y flechas, y Ver todo (inclinación 16 grados). 12 pruebas unitarias de geometría. |
+| 4.4 | ✅ | 2026-11-04 | Peones de pie con sombra y un color por jugador (30 colores distintos, fijos por id aunque cambie la lista); el turno lleva aro amarillo. Hasta 2 por casilla y 6 en la salida, el resto con un "+n". La vuelta de cada jugador se ve en la lista. |
+| 4.5 | ✅ | 2026-11-04 | Tira de 60 casillas con un punto por jugador y un marco que sigue a la cámara (también en la pantalla de turno), y lista de posiciones de primero a último con vuelta y casilla; tocar un nombre enfoca su ficha. Empates comparten lugar. |
+| 4.6 | ✅ | 2026-11-04 | Dado en 3D que rueda y cae en el número real (se calcula antes con la misma semilla) y fichas que caminan casilla por casilla, con salto. Retrocesos y volver a la salida saltan directo. Sin animación con "reducir movimiento". |
+| 4.7 | ✅ | 2026-11-04 | Tarjeta Estallido (medalla con rayos giratorios, ilustración, listón de estrellas, confeti que cae), de tamaño fijo, sin número de casilla ni etiqueta de tipo; el color del listón va por tipo de acción (propuesto, sin confirmar). Entradas animadas de tarjeta, pantallas y paneles. Pruebas e2e: mismo tamaño, sin scroll, Continuar libre. |
+| 4.8 | ✅ | 2026-11-04 | Sonido sintetizado con Web Audio (sin archivos) y vibración, con interruptores en la partida que se recuerdan al reabrir. Por defecto activados. Señales: dado, caída, tarjeta, movimiento y victoria. |
+| 4.9 | ✅ | 2026-11-04 | Wake Lock (src/ui/wakeLock.ts): se pide al entrar a la partida, se vuelve a pedir al regresar a la pestaña y se libera al salir. Si el navegador no lo tiene, avisa para ajustar el apagado automático. Probado con simulaciones (unitarias y e2e); no verificado en un celular real. |
+| 4.10 | 🔄 | 2026-11-04 | Revisión visual hecha en 320, 390 y escritorio, con 3 y 30 jugadores, tarjetas largas, ganador y resultados. Ajustes: tarjeta y pantalla de turno compactas en pantallas bajitas (sin scroll en 320 × 568), perspectiva del mapa menos exagerada, fondo sin attachment fixed y confeti apagado con movimiento reducido (WebKit iba 5 veces más lento). Falta la partida real con un grupo, que solo puede hacer el autor. |
 | 5.1 | ⬜ | | |
 | 5.2 | ⬜ | | |
 | 5.3 | ⬜ | | |

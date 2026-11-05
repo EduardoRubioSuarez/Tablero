@@ -236,7 +236,7 @@ test.describe('efectos de movimiento en pantalla (hito 3.5)', () => {
     expect(text).toMatch(/Al continuar, retrocedes [0-9]+ casillas/)
 
     await page.getByRole('button', { name: 'Continuar', exact: true }).click()
-    await expect(page.getByText(/^Retrocediste a la casilla/)).toBeVisible()
+    await expect(page.getByText(/^Retrocediste a esta casilla/)).toBeVisible()
     await page.getByRole('button', { name: 'Continuar', exact: true }).click()
     await expect(page.getByRole('button', { name: 'Tirar dado' })).toBeVisible()
   })

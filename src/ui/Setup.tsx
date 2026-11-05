@@ -35,9 +35,9 @@ export function Setup() {
   }
 
   return (
-    <main className="mx-auto flex min-h-dvh max-w-md flex-col gap-5 p-4">
+    <main className="anim-pantalla mx-auto flex min-h-dvh max-w-md flex-col gap-5 p-4">
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Nueva partida</h1>
+        <h1 className="font-display text-2xl text-sol-400">Nueva partida</h1>
         <Button variant="ghost" onClick={goHome}>
           Volver
         </Button>
@@ -45,9 +45,9 @@ export function Setup() {
 
       <section
         aria-labelledby="laps-title"
-        className="flex items-center justify-between rounded-2xl bg-zinc-900 p-4"
+        className="flex items-center justify-between rounded-2xl bg-white/10 ring-1 ring-white/10 p-4"
       >
-        <h2 id="laps-title" className="font-semibold">
+        <h2 id="laps-title" className="font-display">
           Vueltas al tablero
         </h2>
         <div className="flex items-center gap-3">
@@ -62,7 +62,7 @@ export function Setup() {
           <output
             aria-live="polite"
             aria-label="Vueltas"
-            className="w-8 text-center text-2xl font-bold"
+            className="font-display w-8 text-center text-2xl"
           >
             {laps}
           </output>
@@ -78,10 +78,10 @@ export function Setup() {
       </section>
 
       <section aria-labelledby="players-title" className="flex flex-col gap-3">
-        <h2 id="players-title" className="font-semibold">
+        <h2 id="players-title" className="font-display">
           Jugadores
         </h2>
-        <p className="rounded-xl bg-zinc-900 p-3 text-sm text-zinc-300">
+        <p className="rounded-xl bg-white/10 ring-1 ring-white/10 p-3 text-sm text-lila">
           Agrégalos <strong>en el orden en que están sentados</strong>: las tarjetas hablan de la
           izquierda, la derecha y el de enfrente, y el turno sigue este orden.
         </p>
@@ -89,7 +89,7 @@ export function Setup() {
         <ol className="flex flex-col gap-2">
           {names.map((name, index) => (
             <li key={index} className="flex items-center gap-2">
-              <span className="w-6 text-right text-sm text-zinc-500">{index + 1}</span>
+              <span className="w-6 text-right text-sm text-lila/80">{index + 1}</span>
               <input
                 value={name}
                 onChange={(e) => setName(index, e.target.value)}
@@ -97,7 +97,7 @@ export function Setup() {
                 aria-label={`Nombre del jugador ${index + 1}`}
                 maxLength={30}
                 autoComplete="off"
-                className="min-h-12 min-w-0 flex-1 rounded-xl bg-zinc-800 px-3 text-base text-zinc-50 placeholder:text-zinc-500 focus-visible:outline-2 focus-visible:outline-amber-300"
+                className="min-h-12 min-w-0 flex-1 rounded-xl bg-white/12 px-3 text-base text-white ring-1 ring-white/20 placeholder:text-white/50 "
               />
               <Button
                 variant="ghost"
@@ -136,7 +136,7 @@ export function Setup() {
       </section>
 
       {(problems[0] ?? error) && (
-        <p role="alert" className="text-sm text-amber-300">
+        <p role="alert" className="text-sm text-sol-300">
           {problems[0] ?? error}
         </p>
       )}

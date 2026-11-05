@@ -9,6 +9,9 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:4173',
     trace: 'on-first-retry',
+    // Las animaciones (dado, confeti, cámara) se apagan para que las partidas automáticas sean rápidas.
+    // Las pruebas de animación la vuelven a activar con page.emulateMedia.
+    reducedMotion: 'reduce',
   },
   projects: [
     { name: 'iphone', use: { ...devices['iPhone 14'] } },

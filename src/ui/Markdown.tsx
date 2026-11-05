@@ -24,21 +24,21 @@ export function Markdown({ source }: { source: string }) {
       i++
     } else if (line.startsWith('## ')) {
       blocks.push(
-        <h3 key={i} className="mt-4 text-lg font-semibold text-amber-300">
+        <h3 key={i} className="font-display mt-4 text-lg text-sol-400">
           {inline(line.slice(3))}
         </h3>,
       )
       i++
     } else if (line.startsWith('# ')) {
       blocks.push(
-        <h2 key={i} className="text-xl font-bold">
+        <h2 key={i} className="font-display text-2xl text-sol-400">
           {inline(line.slice(2))}
         </h2>,
       )
       i++
     } else if (line.startsWith('> ')) {
       blocks.push(
-        <p key={i} className="rounded-xl bg-zinc-800 p-3 text-sm text-zinc-300">
+        <p key={i} className="rounded-xl bg-white/12 p-3 text-sm text-lila">
           {inline(line.slice(2))}
         </p>,
       )

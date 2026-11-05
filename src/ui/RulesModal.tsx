@@ -19,10 +19,10 @@ export function RulesModal() {
       role="dialog"
       aria-modal="true"
       aria-label="Reglamento"
-      className="fixed inset-0 z-50 flex flex-col bg-zinc-950"
+      className="anim-pantalla fondo-mesa fixed inset-0 z-50 flex flex-col"
     >
       <div className="mx-auto flex w-full max-w-md items-center justify-between p-4">
-        <span className="text-sm text-zinc-400">Reglamento</span>
+        <span className="font-display text-xl text-sol-400">Reglamento</span>
         <Button ref={closeRef} variant="secondary" onClick={closeRules}>
           Cerrar
         </Button>
