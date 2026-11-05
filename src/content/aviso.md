@@ -1,5 +1,3 @@
-> Texto base escrito por el autor del juego. Conviene revisarlo con un profesional antes de promover el juego públicamente.
-
 ## Para quién es
 
 Tablero es solo para mayores de 18 años. Incluye retos y acciones relacionados con el alcohol y de índole sexual. Al abrir la app confirmas tu edad; no se verifica y depende de tu palabra.
@@ -19,7 +17,3 @@ Si bebes, hazlo con moderación y no conduzcas. Nadie está obligado a hacer alg
 
 - En el inicio, pulsa **Descartar partida guardada**.
 - Para borrar todo, borra los datos del sitio en los ajustes de tu navegador o desinstala la app.
-
-## Sobre el sitio
-
-El sitio se sirve desde Vercel, que puede registrar datos técnicos de las visitas (como la dirección IP) según sus propias políticas. El juego no recibe esos datos.

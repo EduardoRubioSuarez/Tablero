@@ -190,7 +190,7 @@ function MapDialog({ game, onClose }: { game: Game; onClose: () => void }) {
               onClick={toggleAll}
               className="min-h-11 px-4 text-sm"
             >
-              Ver todo
+              Vista vertical
             </Button>
             <Button
               ref={closeRef}
