@@ -4,7 +4,7 @@ import { useGame } from '../store/gameStore'
 import { Button } from './Button'
 import { CardView } from './CardView'
 import { Dice3D } from './Dice3D'
-import { prefersReducedMotion, signal } from './feedback'
+import { canVibrate, playCue, prefersReducedMotion, signal, vibrate } from './feedback'
 import { ProgressStrip } from './map/ProgressStrip'
 import { useWalkingSpots } from './map/useWalkingSpots'
 import { useWakeLock } from './useWakeLock'
@@ -16,11 +16,15 @@ function ToggleButton({
   label,
   on,
   onClick,
+  disabled = false,
+  title,
   children,
 }: {
   label: string
   on: boolean
   onClick: () => void
+  disabled?: boolean
+  title?: string
   children: React.ReactNode
 }) {
   return (
@@ -28,8 +32,10 @@ function ToggleButton({
       type="button"
       aria-label={label}
       aria-pressed={on}
+      title={title}
+      disabled={disabled}
       onClick={onClick}
-      className={`grid size-11 place-items-center rounded-xl ring-1 ring-inset ${
+      className={`grid size-11 place-items-center rounded-xl ring-1 ring-inset disabled:cursor-not-allowed disabled:opacity-45 ${
         on ? 'bg-sol-400 text-ink ring-sol-400' : 'bg-white/12 text-white/70 ring-white/20'
       }`}
     >
@@ -58,7 +64,7 @@ export function Table() {
   const vibration = useGame((s) => s.vibration)
   const roll = useGame((s) => s.roll)
   const next = useGame((s) => s.next)
-  const openRules = useGame((s) => s.openRules)
+  const openHelp = useGame((s) => s.openHelp)
   const openPlayers = useGame((s) => s.openPlayers)
   const openMap = useGame((s) => s.openMap)
   const toggleSound = useGame((s) => s.toggleSound)
@@ -109,11 +115,28 @@ export function Table() {
           </p>
         </div>
         <div className="flex gap-2">
-          <ToggleButton label="Sonido" on={sound} onClick={toggleSound}>
+          <ToggleButton
+            label="Sonido"
+            on={sound}
+            onClick={() => {
+              toggleSound()
+              // Al encenderlo suena una muestra, para saber que funciona.
+              if (!sound) playCue('land', true)
+            }}
+          >
             <path d="M4 9v6h4l5 4V5L8 9H4z" />
             <path d="M16.5 8.5a5 5 0 0 1 0 7" />
           </ToggleButton>
-          <ToggleButton label="Vibración" on={vibration} onClick={toggleVibration}>
+          <ToggleButton
+            label="Vibración"
+            on={vibration}
+            disabled={!canVibrate()}
+            title={canVibrate() ? undefined : 'Este dispositivo no permite vibrar'}
+            onClick={() => {
+              toggleVibration()
+              if (!vibration) vibrate('land', true)
+            }}
+          >
             <rect x="8" y="4" width="8" height="16" rx="2" />
             <path d="M4 8v8M20 8v8" />
           </ToggleButton>
@@ -184,10 +207,10 @@ export function Table() {
       <nav aria-label="Más opciones" className="flex gap-2">
         <Button
           variant="secondary"
-          onClick={openRules}
+          onClick={openHelp}
           className="tiny:min-h-10 min-h-11 flex-1 px-2 text-sm"
         >
-          Reglamento
+          Ayuda
         </Button>
         <Button
           variant="secondary"

@@ -12,11 +12,14 @@ export function PlayersModal() {
   const close = useGame((s) => s.closePlayers)
   const add = useGame((s) => s.addPlayer)
   const remove = useGame((s) => s.removePlayer)
+  const endGame = useGame((s) => s.endGame)
   const [name, setName] = useState('')
+  const [confirmingEnd, setConfirmingEnd] = useState(false)
   const closeRef = useRef<HTMLButtonElement>(null)
 
   const closeAndReset = () => {
     setName('')
+    setConfirmingEnd(false)
     close()
   }
   useModal(open, closeAndReset, closeRef)
@@ -143,6 +146,47 @@ export function PlayersModal() {
             {error}
           </p>
         )}
+
+        <section
+          aria-labelledby="end-title"
+          className="mt-2 flex flex-col gap-2 border-t border-white/15 pt-4"
+        >
+          <h3 id="end-title" className="font-display">
+            Terminar partida
+          </h3>
+          {confirmingEnd ? (
+            <div
+              role="alertdialog"
+              aria-label="Confirmar fin de la partida"
+              className="flex flex-col gap-2 rounded-xl bg-white/10 p-3 ring-1 ring-white/15"
+            >
+              <p className="text-sm">
+                Se mostrará la tabla de posiciones como van y la partida ya no se podrá continuar.
+              </p>
+              <div className="flex gap-2">
+                <Button className="flex-1" onClick={endGame}>
+                  Sí, terminar
+                </Button>
+                <Button
+                  variant="secondary"
+                  className="flex-1"
+                  onClick={() => setConfirmingEnd(false)}
+                >
+                  Cancelar
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <>
+              <p className="text-xs text-lila">
+                Acaba el juego sin que nadie llegue a la meta y muestra las posiciones actuales.
+              </p>
+              <Button variant="secondary" onClick={() => setConfirmingEnd(true)}>
+                Terminar partida
+              </Button>
+            </>
+          )}
+        </section>
       </div>
     </div>
   )

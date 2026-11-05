@@ -41,7 +41,12 @@ export type GameState = {
   savedWasCorrupt: boolean
   /** No se pudo guardar la partida en este navegador. */
   saveFailed: boolean
+  /** La partida se terminó antes de que alguien llegara a la meta. */
+  endedEarly: boolean
+  /** Reglamento completo (se abre desde el inicio). */
   rulesOpen: boolean
+  /** Ayuda de la partida: qué hacer en ciertas situaciones. */
+  helpOpen: boolean
   playersOpen: boolean
   mapOpen: boolean
   /** Hito 4.8: sonido y vibración opcionales. */
@@ -63,6 +68,9 @@ export type GameState = {
   playAgain: () => void
   openRules: () => void
   closeRules: () => void
+  openHelp: () => void
+  closeHelp: () => void
+  endGame: () => void
   openPlayers: () => void
   closePlayers: () => void
   openMap: () => void
@@ -125,8 +133,10 @@ export function createGameStore(deps: StoreDeps): StoreApi<GameState> {
           saved: null,
           screen: 'game',
           rulesOpen: false,
+          helpOpen: false,
           playersOpen: false,
           mapOpen: false,
+          endedEarly: false,
           error: null,
           ...persist(game),
         })
@@ -153,6 +163,8 @@ export function createGameStore(deps: StoreDeps): StoreApi<GameState> {
       saved: initial.status === 'ok' ? initial.game : null,
       savedWasCorrupt: initial.status === 'corrupt',
       saveFailed: false,
+      endedEarly: false,
+      helpOpen: false,
       rulesOpen: false,
       playersOpen: false,
       mapOpen: false,
@@ -164,7 +176,15 @@ export function createGameStore(deps: StoreDeps): StoreApi<GameState> {
       confirmAge: () => set({ screen: 'home' }),
       denyAge: () => set({ screen: 'denied' }),
       goHome: () =>
-        set({ screen: 'home', rulesOpen: false, playersOpen: false, mapOpen: false, error: null }),
+        set({
+          screen: 'home',
+          rulesOpen: false,
+          helpOpen: false,
+          playersOpen: false,
+          mapOpen: false,
+          endedEarly: false,
+          error: null,
+        }),
       goSetup: () => set({ screen: 'setup', error: null }),
       setDraft: (draft) => set({ draft, error: null }),
 
@@ -208,8 +228,10 @@ export function createGameStore(deps: StoreDeps): StoreApi<GameState> {
           saved: null,
           screen: 'game',
           rulesOpen: false,
+          helpOpen: false,
           playersOpen: false,
           mapOpen: false,
+          endedEarly: false,
           saveFailed: false,
           error: null,
         })
@@ -231,6 +253,23 @@ export function createGameStore(deps: StoreDeps): StoreApi<GameState> {
 
       openRules: () => set({ rulesOpen: true }),
       closeRules: () => set({ rulesOpen: false }),
+      openHelp: () => set({ helpOpen: true }),
+      closeHelp: () => set({ helpOpen: false }),
+      endGame: () => {
+        if (!get().game) return
+        clearSavedGame(deps.storage)
+        set({
+          screen: 'results',
+          endedEarly: true,
+          saved: null,
+          saveFailed: false,
+          rulesOpen: false,
+          helpOpen: false,
+          playersOpen: false,
+          mapOpen: false,
+          error: null,
+        })
+      },
       openPlayers: () => set({ playersOpen: true, error: null }),
       closePlayers: () => set({ playersOpen: false, error: null }),
       openMap: () => set({ mapOpen: true }),

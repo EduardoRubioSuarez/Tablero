@@ -11,11 +11,11 @@ function Face({ n }: { n: number }) {
 }
 
 /**
- * Hito 4.6. Dado en 3D. Con `rolling` da vueltas hasta quedar con `value` de frente; sin valor
- * se queda de reposo mostrando tres caras.
+ * Hito 4.6. Dado en 3D. Con `rolling` da vueltas hasta quedar con `value` en la cara de arriba; sin
+ * valor se queda de reposo mostrando tres caras.
  */
 export function Dice3D({ value, rolling }: { value: number | null; rolling: boolean }) {
-  const [x, y] = value ? FACE_ROTATION[value] : [0, 0]
+  const [x, y, z] = value ? FACE_ROTATION[value] : [0, 0, 0]
   const spin = rolling ? 720 : 0
   return (
     <div className="dado-escena" aria-hidden="true">
@@ -23,7 +23,9 @@ export function Dice3D({ value, rolling }: { value: number | null; rolling: bool
         <div className="dado-inclina">
           <div
             className="dado"
-            style={{ transform: `rotateX(${x + spin}deg) rotateY(${y + spin}deg)` }}
+            style={{
+              transform: `rotateX(${x + spin}deg) rotateY(${y + spin}deg) rotateZ(${z}deg)`,
+            }}
           >
             {[1, 2, 3, 4, 5, 6].map((n) => (
               <Face key={n} n={n} />

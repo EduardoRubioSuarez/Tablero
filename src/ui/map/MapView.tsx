@@ -249,7 +249,10 @@ function MapDialog({ game, onClose }: { game: Game; onClose: () => void }) {
           )}
         </div>
 
-        <section aria-label="Posiciones" className="max-h-[34%] shrink-0 overflow-y-auto">
+        <section
+          aria-label="Posiciones"
+          className="-mx-1 max-h-[34%] shrink-0 overflow-y-auto px-1 py-1"
+        >
           <ol className="flex flex-col gap-1">
             {ranking.map(({ player, rank }) => {
               const selected = player.id === focusPlayer.id

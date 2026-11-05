@@ -94,9 +94,12 @@ Si esos enlaces dejan de funcionar, esta guía describe lo necesario para recons
 - El mapa tiene una fila de **SALIDA** arriba (amarilla) y una de **META** abajo (a cuadros), además de las 60 casillas en 6 columnas. Los jugadores en la posición 0 están en la fila de salida.
 - Las fichas caminan casilla por casilla al avanzar y saltan directo en un retroceso o al volver a la salida. Se ven hasta 2 por casilla (6 en la salida) y el resto se cuenta con un "+n".
 - Con "reducir movimiento" se apagan el dado que rueda, los pasos de las fichas, la cámara animada, los rayos y el confeti (queda quieto).
+- **Dado:** el número de la cara de arriba es la cantidad de casillas que avanza la ficha.
+- **Ayuda y reglamento:** en el inicio hay un botón **Reglas** con el reglamento completo. En la partida el botón se llama **Ayuda** y solo explica qué hacer en ciertas situaciones (`src/content/ayuda.md`); no repite las reglas ni inventa consecuencias.
+- **Terminar partida:** en **Jugadores** hay un botón (con confirmación) que muestra la tabla de posiciones como van.
 - En la tarjeta de un retroceso, la segunda dice "Retrocediste a esta casilla." sin número.
 - Pantallas bajitas (menos de 740 px de alto) y muy bajitas (menos de 620 px) compactan la tarjeta y la pantalla de turno para que no haya scroll.
-- El sonido y la vibración están activados por defecto y se apagan desde dos botones en la parte de arriba de la partida (ADR 008).
+- El sonido y la vibración están activados por defecto y se apagan desde dos botones en la parte de arriba de la partida (ADR 008). Al encenderlos suena o vibra una muestra. La vibración no existe en iPhone ni en la mayoría de las computadoras, y ahí el botón aparece desactivado.
 
 ## 11. Pendientes
 

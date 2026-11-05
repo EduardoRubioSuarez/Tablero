@@ -9,6 +9,7 @@ export function Home() {
   const goSetup = useGame((s) => s.goSetup)
   const resumeSaved = useGame((s) => s.resumeSaved)
   const discardSaved = useGame((s) => s.discardSaved)
+  const openRules = useGame((s) => s.openRules)
 
   return (
     <main className="anim-pantalla mx-auto flex min-h-dvh max-w-md flex-col justify-center gap-6 p-4">
@@ -49,6 +50,9 @@ export function Home() {
 
       <Button variant={saved ? 'secondary' : 'primary'} onClick={goSetup}>
         Nueva partida
+      </Button>
+      <Button variant="secondary" onClick={openRules}>
+        Reglas
       </Button>
     </main>
   )

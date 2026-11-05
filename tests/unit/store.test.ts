@@ -145,7 +145,20 @@ describe('turnos (hitos 3.4 y 3.5)', () => {
   })
 })
 
-describe('reglamento (hito 3.6)', () => {
+describe('reglamento y ayuda (hito 3.6)', () => {
+  it('abrir y cerrar la ayuda no cambia la partida', () => {
+    const { state } = makeStore()
+    readyToStart(state)
+    state().roll()
+    const before = state().game
+    state().openHelp()
+    expect(state().helpOpen).toBe(true)
+    state().closeHelp()
+    expect(state().helpOpen).toBe(false)
+    expect(state().game).toBe(before)
+    expect(state().screen).toBe('game')
+  })
+
   it('abrir y cerrar el reglamento no cambia la partida', () => {
     const { state } = makeStore()
     readyToStart(state)

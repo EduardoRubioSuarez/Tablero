@@ -205,6 +205,94 @@ test.describe('sonido y vibración (hito 4.8)', () => {
   })
 })
 
+test.describe('menú de inicio, ayuda y fin anticipado', () => {
+  test('el inicio tiene un botón Reglas con el reglamento', async ({ page }) => {
+    await page.goto('/')
+    await page.getByRole('button', { name: 'Tengo 18 años o más' }).click()
+    await page.getByRole('button', { name: 'Reglas' }).click()
+    const dialog = page.getByRole('dialog', { name: 'Reglamento' })
+    await expect(dialog.getByText(/Cómo se juega/)).toBeVisible()
+    await expect(dialog.getByText(/Juego responsable/)).toBeVisible()
+    await dialog.getByRole('button', { name: 'Cerrar' }).click()
+    await expect(dialog).toHaveCount(0)
+  })
+
+  test('en la partida el botón se llama Ayuda y ya no hay Reglamento', async ({ page }) => {
+    await startGame(page, ['Ana', 'Beto'])
+    await expect(page.getByRole('button', { name: 'Ayuda' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Reglamento' })).toHaveCount(0)
+    await expect(page.getByRole('button', { name: 'Reglas' })).toHaveCount(0)
+  })
+
+  test('Jugadores permite terminar la partida con confirmación', async ({ page }) => {
+    await startGame(page, ['Ana', 'Beto', 'Carla'])
+    await page.getByRole('button', { name: 'Tirar dado' }).click()
+    await page.getByRole('button', { name: 'Continuar', exact: true }).click()
+    await page.getByRole('button', { name: 'Jugadores' }).click()
+    const dialog = page.getByRole('dialog', { name: 'Jugadores' })
+
+    // Cancelar no termina nada.
+    await dialog.getByRole('button', { name: 'Terminar partida' }).click()
+    await expect(dialog.getByRole('alertdialog')).toBeVisible()
+    await dialog.getByRole('button', { name: 'Cancelar' }).click()
+    await expect(dialog.getByRole('alertdialog')).toHaveCount(0)
+
+    await dialog.getByRole('button', { name: 'Terminar partida' }).click()
+    await dialog.getByRole('button', { name: 'Sí, terminar' }).click()
+    await expect(page.getByText('La partida terminó')).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Partida terminada' })).toBeVisible()
+    await expect(page.getByText(/en primer lugar/)).toBeVisible()
+    const rows = page.getByRole('region', { name: 'Tabla de posiciones' }).getByRole('listitem')
+    await expect(rows).toHaveCount(3)
+
+    // La partida terminada no se puede continuar.
+    await page.reload()
+    await page.getByRole('button', { name: 'Tengo 18 años o más' }).click()
+    await expect(page.getByText('Tienes una partida sin terminar')).toHaveCount(0)
+  })
+})
+
+test.describe('sonido y vibración: funcionan cuando están activados', () => {
+  test('vibra y suena al tirar el dado; apagados no hacen nada', async ({ page }) => {
+    await page.addInitScript(() => {
+      const w = window as unknown as { __fx: { tones: number; vibrations: number } }
+      w.__fx = { tones: 0, vibrations: 0 }
+      const Ctx = window.AudioContext
+      if (Ctx) {
+        const original = Ctx.prototype.createOscillator
+        Ctx.prototype.createOscillator = function (this: AudioContext) {
+          w.__fx.tones++
+          return original.call(this)
+        }
+      }
+      Object.defineProperty(navigator, 'vibrate', {
+        configurable: true,
+        value: () => {
+          w.__fx.vibrations++
+          return true
+        },
+      })
+    })
+    const fx = () =>
+      page.evaluate(() => (window as never as { __fx: { tones: number; vibrations: number } }).__fx)
+
+    await startGame(page, ['Ana', 'Beto'])
+    await page.getByRole('button', { name: 'Tirar dado' }).click()
+    await expect(cardRegion(page)).toBeVisible()
+    expect((await fx()).vibrations).toBeGreaterThan(0)
+
+    await page.getByRole('button', { name: 'Continuar', exact: true }).click()
+    await page.getByRole('button', { name: 'Sonido' }).click()
+    await page.getByRole('button', { name: 'Vibración' }).click()
+    const before = await fx()
+    await page.getByRole('button', { name: 'Tirar dado' }).click()
+    await expect(cardRegion(page)).toBeVisible()
+    const after = await fx()
+    expect(after.tones).toBe(before.tones)
+    expect(after.vibrations).toBe(before.vibrations)
+  })
+})
+
 test.describe('pantalla siempre encendida (hito 4.9)', () => {
   test('pide el bloqueo de pantalla al jugar si el navegador lo permite', async ({ page }) => {
     await page.addInitScript(() => {

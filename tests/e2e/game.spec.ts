@@ -105,7 +105,7 @@ test.describe('turnos y tarjetas (hitos 3.4 y 3.5)', () => {
   })
 })
 
-test.describe('reglamento (hito 3.6)', () => {
+test.describe('ayuda en la partida (hito 3.6)', () => {
   test('se abre y se cierra durante la partida sin perder el turno', async ({ page }) => {
     await startGame(page, ['Ana', 'Beto'])
     await page.getByRole('button', { name: 'Tirar dado' }).click()
@@ -113,18 +113,18 @@ test.describe('reglamento (hito 3.6)', () => {
     const cardText = await card.textContent()
     const heading = await page.getByRole('heading', { level: 1 }).textContent()
 
-    await page.getByRole('button', { name: 'Reglamento' }).click()
-    const dialog = page.getByRole('dialog', { name: 'Reglamento' })
+    await page.getByRole('button', { name: 'Ayuda' }).click()
+    const dialog = page.getByRole('dialog', { name: 'Ayuda' })
     await expect(dialog).toBeVisible()
-    await expect(dialog.getByText(/Cómo se juega/)).toBeVisible()
-    await expect(dialog.getByText(/Juego responsable/)).toBeVisible()
+    await expect(dialog.getByText(/Si caes en un retroceso/)).toBeVisible()
+    await expect(dialog.getByText(/Terminar la partida antes de tiempo/)).toBeVisible()
 
     await page.getByRole('button', { name: 'Cerrar' }).click()
     await expect(dialog).toHaveCount(0)
     expect(await card.textContent()).toBe(cardText)
     expect(await page.getByRole('heading', { level: 1 }).textContent()).toBe(heading)
 
-    await page.getByRole('button', { name: 'Reglamento' }).click()
+    await page.getByRole('button', { name: 'Ayuda' }).click()
     await page.keyboard.press('Escape')
     await expect(dialog).toHaveCount(0)
   })
@@ -353,7 +353,7 @@ test.describe('paneles accesibles (revisión del bloque 3)', () => {
 
   test('con un panel abierto, lo de atrás queda inerte', async ({ page }) => {
     await startGame(page, ['Ana', 'Beto'])
-    await page.getByRole('button', { name: 'Reglamento' }).click()
+    await page.getByRole('button', { name: 'Ayuda' }).click()
     await expect(page.locator('div[inert]')).toHaveCount(1)
     await page.getByRole('button', { name: 'Cerrar' }).click()
     await expect(page.locator('div[inert]')).toHaveCount(0)

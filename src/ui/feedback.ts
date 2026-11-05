@@ -14,37 +14,37 @@ export const CUES: Record<Cue, Note[]> = {
     at,
     dur: 0.045,
     type: 'square' as const,
-    gain: 0.05,
+    gain: 0.12,
   })),
   land: [
-    { freq: 520, at: 0, dur: 0.09, type: 'triangle', gain: 0.12 },
-    { freq: 780, at: 0.08, dur: 0.14, type: 'triangle', gain: 0.12 },
+    { freq: 520, at: 0, dur: 0.09, type: 'triangle', gain: 0.29 },
+    { freq: 780, at: 0.08, dur: 0.14, type: 'triangle', gain: 0.29 },
   ],
   card: [
-    { freq: 660, at: 0, dur: 0.12, type: 'sine', gain: 0.14 },
-    { freq: 880, at: 0.1, dur: 0.2, type: 'sine', gain: 0.14 },
+    { freq: 660, at: 0, dur: 0.12, type: 'sine', gain: 0.34 },
+    { freq: 880, at: 0.1, dur: 0.2, type: 'sine', gain: 0.34 },
   ],
   move: [
-    { freq: 440, at: 0, dur: 0.14, type: 'sawtooth', gain: 0.07 },
-    { freq: 330, at: 0.12, dur: 0.14, type: 'sawtooth', gain: 0.07 },
-    { freq: 220, at: 0.24, dur: 0.22, type: 'sawtooth', gain: 0.07 },
+    { freq: 440, at: 0, dur: 0.14, type: 'sawtooth', gain: 0.17 },
+    { freq: 330, at: 0.12, dur: 0.14, type: 'sawtooth', gain: 0.17 },
+    { freq: 220, at: 0.24, dur: 0.22, type: 'sawtooth', gain: 0.17 },
   ],
   win: [523, 659, 784, 1047].map((freq, i) => ({
     freq,
     at: i * 0.13,
     dur: i === 3 ? 0.5 : 0.16,
     type: 'triangle' as const,
-    gain: 0.15,
+    gain: 0.36,
   })),
-  tap: [{ freq: 620, at: 0, dur: 0.04, type: 'sine', gain: 0.08 }],
+  tap: [{ freq: 620, at: 0, dur: 0.04, type: 'sine', gain: 0.19 }],
 }
 
 /** Patrones de vibración, en milisegundos (vibra, pausa, vibra...). */
 export const PATTERNS: Record<Cue, number[]> = {
-  roll: [12, 40, 12, 40, 12],
-  land: [30],
-  card: [20],
-  move: [60, 40, 60],
+  roll: [25, 50, 25, 50, 25],
+  land: [60],
+  card: [40],
+  move: [90, 50, 90],
   win: [80, 60, 80, 60, 220],
   tap: [8],
 }
@@ -64,6 +64,19 @@ function audio(): AudioContext | null {
   } catch {
     return null
   }
+}
+
+/**
+ * Despierta el audio con el primer toque en la pantalla. Los navegadores (sobre todo Safari en
+ * iPhone) no dejan sonar nada hasta que el jugador toca algo.
+ */
+export function unlockAudio(): void {
+  audio()
+}
+
+/** true si este dispositivo puede vibrar (Android sí; iPhone y la mayoría de las computadoras no). */
+export function canVibrate(): boolean {
+  return typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function'
 }
 
 export function playCue(cue: Cue, enabled: boolean): void {

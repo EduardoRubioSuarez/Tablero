@@ -14,10 +14,11 @@ export function Results() {
   const goHome = useGame((s) => s.goHome)
   const sound = useGame((s) => s.sound)
   const vibration = useGame((s) => s.vibration)
+  const endedEarly = useGame((s) => s.endedEarly)
 
-  // Fanfarria al llegar a la pantalla final.
+  // Fanfarria al llegar a la pantalla final (si alguien ganó).
   useEffect(() => {
-    signal('win', { sound, vibration })
+    if (!endedEarly) signal('win', { sound, vibration })
     // Solo al entrar; cambiar los ajustes aquí no debe repetirla.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -25,10 +26,11 @@ export function Results() {
   if (!game) return null
   const ranking = getRanking(game)
   const winner = game.players.find((p) => p.id === game.winnerId)
+  const leaders = ranking.filter((entry) => entry.rank === 1).map((entry) => entry.player.name)
 
   return (
     <main className="anim-pantalla mx-auto flex min-h-dvh max-w-md flex-col gap-5 p-4">
-      <Confeti seed={game.seed} />
+      {!endedEarly && <Confeti seed={game.seed} />}
       <header className="flex flex-col gap-2">
         <p
           role="status"
@@ -37,8 +39,14 @@ export function Results() {
           La partida terminó
         </p>
         <h1 className="font-display text-4xl leading-tight break-words text-sol-400 [text-shadow:0_3px_0_#b78a00,0_10px_18px_rgb(0_0_0/0.45)]">
-          Ganó {winner?.name}
+          {endedEarly ? 'Partida terminada' : `Ganó ${winner?.name}`}
         </h1>
+        {endedEarly && (
+          <p className="text-lila">
+            {leaders.length === 1 ? 'Va en primer lugar' : 'Van en primer lugar'}:{' '}
+            <strong className="text-white">{leaders.join(' y ')}</strong>
+          </p>
+        )}
       </header>
 
       <section aria-labelledby="ranking-title" className="flex flex-col gap-2">
